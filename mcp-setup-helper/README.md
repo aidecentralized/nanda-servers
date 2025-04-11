@@ -3,8 +3,8 @@
 This MCP server helps users set up and configure their AI assistant environments with three key components:
 
 1. **Memory Bank** - A structured documentation system for context preservation (Currently Implemented)
-2. **MCP Servers** - Custom server implementations for extended AI capabilities (Coming Soon)
-3. **Rules** - Configuration settings for AI behavior and limitations (Coming Soon)
+2. **MCP Servers** - MCP servers recommender for extending AI capabilities (In progress)
+3. **Rules** - Rules recommendations based on tech stack and project features (In progress)
 
 ## Current Features (Memory Bank)
 
