@@ -4,6 +4,7 @@ import os
 import httpx
 from mcp.server.fastmcp import FastMCP  # Main MCP server class
 from starlette.applications import Starlette  # ASGI framework
+from starlette.responses import HTMLResponse  # Add HTML response
 from mcp.server.sse import SseServerTransport  # SSE transport implementation
 from starlette.requests import Request
 from starlette.routing import Mount, Route
@@ -187,6 +188,99 @@ async def get_item_info(item_name: str) -> str:
         return f"An error occurred while retrieving item information: {str(e)}"
 
 
+# Add a homepage handler for root URL
+async def homepage(request: Request) -> HTMLResponse:
+    """Handle requests to the root URL by returning a simple HTML page."""
+    html_content = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>MCP Inventory Server</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+            h1 {
+                color: #333;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .status {
+                padding: 10px;
+                background-color: #e6f7e6;
+                border-left: 4px solid #28a745;
+                margin-bottom: 20px;
+            }
+            button {
+                padding: 8px 16px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0069d9;
+            }
+            #status-box {
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                min-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>MCP Inventory Server</h1>
+            <div class="status">Server is running correctly!</div>
+            
+            <button id="connect-btn">Connect to SSE</button>
+            
+            <div id="status-box">Connection status will appear here...</div>
+            
+            <h2>Available Tools:</h2>
+            <ul>
+                <li><strong>get_items</strong> - Get a list of all items in the inventory</li>
+                <li><strong>get_item_info</strong> - Get detailed information about a specific item</li>
+            </ul>
+            
+            <script>
+                document.getElementById('connect-btn').addEventListener('click', function() {
+                    const statusBox = document.getElementById('status-box');
+                    statusBox.innerHTML = 'Connecting to SSE...';
+                    
+                    try {
+                        const eventSource = new EventSource('/sse');
+                        
+                        eventSource.onopen = function() {
+                            statusBox.innerHTML += '<br>Connection established!';
+                        };
+                        
+                        eventSource.onerror = function(error) {
+                            statusBox.innerHTML += '<br>Error: Connection failed';
+                            eventSource.close();
+                        };
+                        
+                        eventSource.addEventListener('message', function(event) {
+                            statusBox.innerHTML += `<br>Received: ${event.data}`;
+                        });
+                    } catch (error) {
+                        statusBox.innerHTML += `<br>Error: ${error.message}`;
+                    }
+                });
+            </script>
+        </div>
+    </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content)
+
+
 # Create a Starlette application with SSE transport
 def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlette:
     """Create a Starlette application that can serve the provided mcp server with SSE.
@@ -214,6 +308,7 @@ def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlett
     return Starlette(
         debug=debug,
         routes=[
+            Route("/", endpoint=homepage),  # Add root URL handler
             Route("/sse", endpoint=handle_sse),  # Endpoint for SSE connections
             Mount("/messages/", app=sse.handle_post_message),  # Endpoint for messages
         ],
