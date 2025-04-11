@@ -46,22 +46,10 @@ export ANTHROPIC_API_KEY=<your_api_key>
 
 Run the server using:
 ```
-uv run client.py server.py
+python3 server.py
 
 ```
-
-### Using the Client
-
-Run the client with:
-```bash
-python client.py server.py
-```
-
-The client provides an interactive interface where you can:
-- Generate synthetic data from CSV files
-- Analyze data schemas
-- View sample records
-- Execute custom Python scripts
+Execute custom Python scripts
 
 ## 🧰 Available Tools
 
