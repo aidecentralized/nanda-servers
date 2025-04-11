@@ -1,5 +1,6 @@
 import httpx
 import urllib.parse
+import logging
 from typing import Optional, List, Dict, Any
 from starlette.applications import Starlette
 from mcp.server.sse import SseServerTransport
@@ -10,6 +11,14 @@ from mcp.server import Server
 import uvicorn
 
 from fastmcp import FastMCP
+
+# Configure logging
+logger = logging.getLogger('hyperskill_mcp')
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 # Global variable to cache the session ID
 _session_id: Optional[str] = None
@@ -39,20 +48,17 @@ async def fetch_session_id() -> Optional[str]:
 
             if "sessionid" in response.cookies:
                 _session_id = response.cookies["sessionid"]
-                print(f"Obtained and cached session ID: {_session_id[:5]}...") # Print truncated ID for security
                 return _session_id
             else:
-                print("Failed to obtain session ID from Hyperskill API response cookies.")
-                # Check if the response indicates why (e.g., redirect to login?)
-                print(f"Status Code: {response.status_code}")
-                # print(f"Response Headers: {response.headers}") # Uncomment for detailed debugging
+                logger.warning("Failed to obtain session ID from Hyperskill API response cookies.")
+                logger.warning(f"Status Code: {response.status_code}")
                 return None
 
     except httpx.RequestError as exc:
-        print(f"Error fetching session ID: An error occurred while requesting {exc.request.url!r}: {exc}")
+        logger.error(f"Error fetching session ID: An error occurred while requesting {exc.request.url!r}: {exc}")
         return None
     except Exception as e:
-        print(f"An unexpected error occurred during session ID fetch: {e}")
+        logger.error(f"An unexpected error occurred during session ID fetch: {e}")
         return None
 
 mcp = FastMCP("Hyperskill")
@@ -174,7 +180,7 @@ async def search_hyperskill(keyword: str) -> Optional[str]:
             response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
 
             response_data = response.json()
-            print(f"Search response for keyword '{keyword}': {response_data}") # Optional: for debugging
+            logger.debug(f"Search response for keyword '{keyword}': {response_data}")
 
             search_results = response_data.get("search-results") or response_data.get("search_results")
 
@@ -184,13 +190,13 @@ async def search_hyperskill(keyword: str) -> Optional[str]:
                 if target_id:
                     return str(target_id) # Ensure it's returned as a string
 
-            print(f"No search results found for keyword: {keyword}")
+            logger.info(f"No search results found for keyword: {keyword}")
             return None
     except httpx.RequestError as exc:
-        print(f"An error occurred while requesting {exc.request.url!r}: {exc}")
+        logger.error(f"An error occurred while requesting {exc.request.url!r}: {exc}")
         return None
     except Exception as e:
-        print(f"An unexpected error occurred during search for '{keyword}': {e}")
+        logger.error(f"An unexpected error occurred during search for '{keyword}': {e}")
         # Consider more specific exception handling if needed
         return None
 
@@ -222,10 +228,10 @@ async def fetch_topic_details(topic_ids: List[str]) -> Optional[Dict[str, Any]]:
             
             return response.json()
     except httpx.RequestError as exc:
-        print(f"An error occurred while requesting {exc.request.url!r}: {exc}")
+        logger.error(f"An error occurred while requesting {exc.request.url!r}: {exc}")
         return None
     except Exception as e:
-        print(f"An unexpected error occurred while fetching topic details: {e}")
+        logger.error(f"An unexpected error occurred while fetching topic details: {e}")
         return None
 
 # Create Starlette application with SSE transport
@@ -254,6 +260,7 @@ def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlett
     )
 
 if __name__ == "__main__":
+    logger.info("Starting Hyperskill MCP Server")
     mcp_server = mcp._mcp_server
     
     # Create and run Starlette app
