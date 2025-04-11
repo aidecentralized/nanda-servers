@@ -1,0 +1,788 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.2, pytest-8.3.5, pluggy-1.5.0 -- /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/adamhall/Documents/GitHub/nanda-ssi-demo/test
+configfile: pytest.ini
+plugins: langsmith-0.3.24, anyio-4.9.0, asyncio-0.26.0
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 10 items
+
+mcp_llm_integration.py::test_get_tenant_status ─────────── 17:01:19 - Query: Could you please get me a summary of details about my tenant?   ────────────
+Human Input: Could you please get me a summary of details about my tenant? 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you please get me a summary of details about my tenant? \n",
+    "",
+    "{\n  \"state\": \"active\",\n  \"created_at\": \"2025-04-11T14:05:22.216873Z\",\n  \"updated_at\": \"2025-04-11T14:09:46.096319Z\",\n  \"tenant_id\": \"673a8bca-9cc7-4d60-8982-22d28961faf1\",\n  \"tenant_name\": \"Alice\",\n  \"contact_email\": \"alice@xanaducyber.com\",\n  \"wallet_id\": \"ddece52b-e66b-42ad-bdfd-9e6cbfda8e8e\",\n  \"connect_to_endorser\": [\n    {\n      \"endorser_alias\": \"bcovrin-test-endorser\",\n      \"ledger_id\": \"bcovrin-test\"\n    },\n    {\n      \"endorser_alias\": \"bcovrin-test-endorser-1\",\n      \"ledger_id\": \"bcovrin-test-1\"\n    }\n  ],\n  \"created_public_did\": [\n    \"bcovrin-test\",\n    \"bcovrin-test-1\"\n  ],\n  \"auto_issuer\": true,\n  \"enable_ledger_switch\": false,\n  \"curr_ledger_id\": \"bcovrin-test\"\n}",
+    "Hello there, little friend! I'd be happy to help you with that.\n\nSo, it looks like we have some information about your tenant (that's a big word for \"person\" or \"organization\"). Here are the details:\n\n* The tenant is named **Alice**.\n* We can reach them at their email address: **alice@xanaducyber.com**.\n* They have a special ID called a **wallet ID**, which is **ddece52b-e66b-42ad-bdfd-9e6cbfda8e8e**.\n* There are two special friends (called \"endorser\" in big words) who can help Alice with some things: **bcovrin-test-endorser** and **bcovrin-test-endorser-1**. They have their own special IDs too!\n* We also know that Alice has a special ID called a **public DID**, which is **bcovrin-test** and **bcovrin-test-1**.\n* Some other things are set up for Alice, like whether she can automatically get new things (the answer is yes!) or if she can switch between different ledgers (the answer is no).\n\nI hope that helps! Let me know if you have any more questions."
+  ]
+}
+
+AI Output:
+╭──────────────────── 🛠️ Tool Output ─────────────────────╮
+│ {                                                      │
+│   "state": "active",                                   │
+│   "created_at": "2025-04-11T14:05:22.216873Z",         │
+│   "updated_at": "2025-04-11T14:09:46.096319Z",         │
+│   "tenant_id": "673a8bca-9cc7-4d60-8982-22d28961faf1", │
+│   "tenant_name": "Alice",                              │
+│   "contact_email": "alice@xanaducyber.com",            │
+│   "wallet_id": "ddece52b-e66b-42ad-bdfd-9e6cbfda8e8e", │
+│   "connect_to_endorser": [                             │
+│     {                                                  │
+│       "endorser_alias": "bcovrin-test-endorser",       │
+│       "ledger_id": "bcovrin-test"                      │
+│     },                                                 │
+│     {                                                  │
+│       "endorser_alias": "bcovrin-test-endorser-1",     │
+│       "ledger_id": "bcovrin-test-1"                    │
+│     }                                                  │
+│   ],                                                   │
+│   "created_public_did": [                              │
+│     "bcovrin-test",                                    │
+│     "bcovrin-test-1"                                   │
+│   ],                                                   │
+│   "auto_issuer": true,                                 │
+│   "enable_ledger_switch": false,                       │
+│   "curr_ledger_id": "bcovrin-test"                     │
+│ }                                                      │
+╰────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────╮
+│ Hello there, little friend! I'd be happy to help you with that.                                        │
+│                                                                                                        │
+│ So, it looks like we have some information about your tenant (that's a big word for "person" or        │
+│ "organization"). Here are the details:                                                                 │
+│                                                                                                        │
+│ * The tenant is named **Alice**.                                                                       │
+│ * We can reach them at their email address: **alice@xanaducyber.com**.                                 │
+│ * They have a special ID called a **wallet ID**, which is **ddece52b-e66b-42ad-bdfd-9e6cbfda8e8e**.    │
+│ * There are two special friends (called "endorser" in big words) who can help Alice with some things:  │
+│ **bcovrin-test-endorser** and **bcovrin-test-endorser-1**. They have their own special IDs too!        │
+│ * We also know that Alice has a special ID called a **public DID**, which is **bcovrin-test** and      │
+│ **bcovrin-test-1**.                                                                                    │
+│ * Some other things are set up for Alice, like whether she can automatically get new things (the       │
+│ answer is yes!) or if she can switch between different ledgers (the answer is no).                     │
+│                                                                                                        │
+│ I hope that helps! Let me know if you have any more questions.                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_list_connections ──────────────────── 17:01:27 - Query: Could you please query my active connections?  ────────────────────
+Human Input: Could you please query my active connections?
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you please query my active connections?\n",
+    "",
+    "{\n  \"results\": [\n    {\n      \"state\": \"active\",\n      \"created_at\": \"2025-04-11T14:09:39.960209Z\",\n      \"updated_at\": \"2025-04-11T14:09:40.378113Z\",\n      \"connection_id\": \"4a258431-e72b-46de-80c3-7ab5e952a863\",\n      \"my_did\": \"5HdYaTkG3zht3nUaUGFrT7\",\n      \"their_did\": \"BhTRNB6okoXMAcuRpu427m\",\n      \"their_role\": \"inviter\",\n      \"connection_protocol\": \"didexchange/1.0\",\n      \"rfc23_state\": \"completed\",\n      \"request_id\": \"8a2c482a-caf8-4897-b54a-bb7f436c1527\",\n      \"accept\": \"manual\",\n      \"invitation_mode\": \"once\",\n      \"alias\": \"bcovrin-test-endorser\",\n      \"their_public_did\": \"SVfHGCEEvEFmpBPcxgNqRR\"\n    },\n    {\n      \"state\": \"active\",\n      \"created_at\": \"2025-04-11T15:52:56.251101Z\",\n      \"updated_at\": \"2025-04-11T15:53:56.300962Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"my_did\": \"XidQ9VsTN9cLt8PPAEe93D\",\n      \"their_did\": \"CVyEsN1Zas3Wy8bN5bJ1YJ\",\n      \"their_label\": \"Bob\",\n      \"their_role\": \"invitee\",\n      \"connection_protocol\": \"didexchange/1.0\",\n      \"rfc23_state\": \"completed\",\n      \"invitation_key\": \"HSQo36oRZnfTVV6tUYYpQfNiZcRc52A2wXXYj6xemfxt\",\n      \"invitation_msg_id\": \"79029583-eb94-4a09-b999-eff6a3c38512\",\n      \"request_id\": \"9532d22d-6116-4937-a72f-19f3ab0b2bcd\",\n      \"accept\": \"auto\",\n      \"invitation_mode\": \"once\",\n      \"alias\": \"Bob\"\n    }\n  ]\n}",
+    "Here are the active connections for you:\n\n1. **Connection ID:** 4a258431-e72b-46de-80c3-7ab5e952a863\n\t* Your DID: 5HdYaTkG3zht3nUaUGFrT7\n\t* Their DID: BhTRNB6okoXMAcuRpu427m\n\t* Their role: Inviter\n2. **Connection ID:** 03b36936-33b3-4b56-9457-fb79fc33156c\n\t* Your DID: XidQ9VsTN9cLt8PPAEe93D\n\t* Their DID: CVyEsN1Zas3Wy8bN5bJ1YJ\n\t* Their label: Bob\n\t* Their role: Invitee\n\nThese are the active connections you have. Let me know if you need any further assistance!"
+  ]
+}
+
+AI Output:
+╭───────────────────────────── 🛠️ Tool Output ─────────────────────────────╮
+│ {                                                                       │
+│   "results": [                                                          │
+│     {                                                                   │
+│       "state": "active",                                                │
+│       "created_at": "2025-04-11T14:09:39.960209Z",                      │
+│       "updated_at": "2025-04-11T14:09:40.378113Z",                      │
+│       "connection_id": "4a258431-e72b-46de-80c3-7ab5e952a863",          │
+│       "my_did": "5HdYaTkG3zht3nUaUGFrT7",                               │
+│       "their_did": "BhTRNB6okoXMAcuRpu427m",                            │
+│       "their_role": "inviter",                                          │
+│       "connection_protocol": "didexchange/1.0",                         │
+│       "rfc23_state": "completed",                                       │
+│       "request_id": "8a2c482a-caf8-4897-b54a-bb7f436c1527",             │
+│       "accept": "manual",                                               │
+│       "invitation_mode": "once",                                        │
+│       "alias": "bcovrin-test-endorser",                                 │
+│       "their_public_did": "SVfHGCEEvEFmpBPcxgNqRR"                      │
+│     },                                                                  │
+│     {                                                                   │
+│       "state": "active",                                                │
+│       "created_at": "2025-04-11T15:52:56.251101Z",                      │
+│       "updated_at": "2025-04-11T15:53:56.300962Z",                      │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c",          │
+│       "my_did": "XidQ9VsTN9cLt8PPAEe93D",                               │
+│       "their_did": "CVyEsN1Zas3Wy8bN5bJ1YJ",                            │
+│       "their_label": "Bob",                                             │
+│       "their_role": "invitee",                                          │
+│       "connection_protocol": "didexchange/1.0",                         │
+│       "rfc23_state": "completed",                                       │
+│       "invitation_key": "HSQo36oRZnfTVV6tUYYpQfNiZcRc52A2wXXYj6xemfxt", │
+│       "invitation_msg_id": "79029583-eb94-4a09-b999-eff6a3c38512",      │
+│       "request_id": "9532d22d-6116-4937-a72f-19f3ab0b2bcd",             │
+│       "accept": "auto",                                                 │
+│       "invitation_mode": "once",                                        │
+│       "alias": "Bob"                                                    │
+│     }                                                                   │
+│   ]                                                                     │
+│ }                                                                       │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────── AI Message 1 ───────────────────────────────────────╮
+│ Here are the active connections for you:                                                   │
+│                                                                                            │
+│ 1. **Connection ID:** 4a258431-e72b-46de-80c3-7ab5e952a863                                 │
+│         * Your DID: 5HdYaTkG3zht3nUaUGFrT7                                                 │
+│         * Their DID: BhTRNB6okoXMAcuRpu427m                                                │
+│         * Their role: Inviter                                                              │
+│ 2. **Connection ID:** 03b36936-33b3-4b56-9457-fb79fc33156c                                 │
+│         * Your DID: XidQ9VsTN9cLt8PPAEe93D                                                 │
+│         * Their DID: CVyEsN1Zas3Wy8bN5bJ1YJ                                                │
+│         * Their label: Bob                                                                 │
+│         * Their role: Invitee                                                              │
+│                                                                                            │
+│ These are the active connections you have. Let me know if you need any further assistance! │
+╰────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_oob_invitation ─ 17:01:33 - Query: Could you create an out of band SSI agent invitation for my friend Bob? I'd like th… ─
+Human Input: Could you create an out of band SSI agent invitation for my friend Bob? I'd like their alias 
+to be Bob. Give me the url 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you create an out of band SSI agent invitation for my friend Bob? I'd like their alias to be Bob. Give me the url \n",
+    "",
+    "https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS4xL2ludml0YXRpb24iLCJAaWQiOiIyOWE1NjE3Zi1lMjM3LTQ3MmQtODVhYS1hOTQzMjM1NzI1YmMiLCJsYWJlbCI6IkRlZmF1bHQgTGFiZWwiLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZNa3dmdm85Z21DNnlhMzdkQWFSZnYxVHFicDhoODhBV0pRaHBKeEdlM2RnWkhoI3o2TWt3ZnZvOWdtQzZ5YTM3ZEFhUmZ2MVRxYnA4aDg4QVdKUWhwSnhHZTNkZ1pIaCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzg3NTAtODAtNDAtMjItNDgubmdyb2stZnJlZS5hcHAifV19",
+    "Hello! I'm here to help you. I've created an out-of-band invitation for your friend Bob. You can share this link with him: https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS4xL2ludml0YXRpb24iLCJAaWQiOiIyOWE1NjE3Zi1lMjM3LTQ3MmQtODVhYS1hOTQzMjM1NzI1YmMiLCJsYWJlbCI6IkRlZmF1bHQgTGFiZWwiLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZNa3dmdm85Z21DNnlhMzdkQWFSZnYxVHFicDhoODhBV0pRaHBKeEdlM2RnWkhoI3o2TWt3ZnZvOWdtQzZ5YTM3ZEFhUmZ2MVRxYnA4aDg4QVdKUWhwSnhHZTNkZ1pIaCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzg3NTAtODAtNDAtMjItNDgubmdyb2stZnJlZS5hcHAifV19"
+  ]
+}
+
+AI Output:
+╭───────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────╮
+│ https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS │
+│ 4xL2ludml0YXRpb24iLCJAaWQiOiIyOWE1NjE3Zi1lMjM3LTQ3MmQtODVhYS1hOTQzMjM1NzI1YmMiLCJsYWJlbCI6IkRlZmF1bHQg │
+│ TGFiZWwiLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2 │
+│ VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZN │
+│ a3dmdm85Z21DNnlhMzdkQWFSZnYxVHFicDhoODhBV0pRaHBKeEdlM2RnWkhoI3o2TWt3ZnZvOWdtQzZ5YTM3ZEFhUmZ2MVRxYnA4aD │
+│ g4QVdKUWhwSnhHZTNkZ1pIaCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzg3NTAtODAtNDAtMjItNDgubmdyb2stZnJlZS5h │
+│ cHAifV19                                                                                               │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────── AI Message 2 ─────────────────────────────────────────────╮
+│ Hello! I'm here to help you. I've created an out-of-band invitation for your friend Bob. You can share │
+│ this link with him:                                                                                    │
+│ https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS │
+│ 4xL2ludml0YXRpb24iLCJAaWQiOiIyOWE1NjE3Zi1lMjM3LTQ3MmQtODVhYS1hOTQzMjM1NzI1YmMiLCJsYWJlbCI6IkRlZmF1bHQg │
+│ TGFiZWwiLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2 │
+│ VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZN │
+│ a3dmdm85Z21DNnlhMzdkQWFSZnYxVHFicDhoODhBV0pRaHBKeEdlM2RnWkhoI3o2TWt3ZnZvOWdtQzZ5YTM3ZEFhUmZ2MVRxYnA4aD │
+│ g4QVdKUWhwSnhHZTNkZ1pIaCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzg3NTAtODAtNDAtMjItNDgubmdyb2stZnJlZS5h │
+│ cHAifV19                                                                                               │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_scheme_creation ─ 17:02:05 - Query: I'd like to create a new scheme named after NANDAThe scheme version is '4.0' and th… ─
+Human Input: I'd like to create a new scheme named after NANDAThe scheme version is '4.0' and the exact 
+attribute name that I want is 'hackathon_attendance'. 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "I'd like to create a new scheme named after NANDAThe scheme version is '4.0' and the exact attribute name that I want is 'hackathon_attendance'. \n",
+    "",
+    "{\n  \"sent\": {\n    \"schema_id\": \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0\",\n    \"schema\": {\n      \"signed_txn\": \"{\\\"endorser\\\": \\\"SVfHGCEEvEFmpBPcxgNqRR\\\", \\\"identifier\\\": \\\"BoVDDo4n5WKoCmWNRv7Z9z\\\", \\\"operation\\\": {\\\"data\\\": {\\\"attr_names\\\": [\\\"hackathon_attendance\\\"], \\\"name\\\": \\\"NANDA\\\", \\\"version\\\": \\\"4.0\\\"}, \\\"type\\\": \\\"101\\\"}, \\\"protocolVersion\\\": 2, \\\"reqId\\\": 1744387330969545616, \\\"signature\\\": \\\"3SApzBA696nG1kE8NE8rH1WBjzRN2ovJEtgQzMM8aUL2Ms9EyBya1pqyRZiRX8za235bAbj8tdK4neRZe61foHoK\\\"}\"\n    }\n  },\n  \"txn\": {\n    \"state\": \"request_sent\",\n    \"created_at\": \"2025-04-11T16:02:10.979603Z\",\n    \"updated_at\": \"2025-04-11T16:02:10.986016Z\",\n    \"trace\": false,\n    \"transaction_id\": \"e501481d-c89a-4232-84ac-5e953ba5c2dd\",\n    \"_type\": \"https://didcomm.org/sign-attachment/1.0/signature-request\",\n    \"signature_request\": [\n      {\n        \"context\": \"did:sov\",\n        \"method\": \"add-signature\",\n        \"signature_type\": \"default\",\n        \"signer_goal_code\": \"aries.transaction.endorse\",\n        \"author_goal_code\": \"aries.transaction.ledger.write\"\n      }\n    ],\n    \"signature_response\": [],\n    \"timing\": {\n      \"expires_time\": null\n    },\n    \"formats\": [\n      {\n        \"attach_id\": \"a35ed8a9-3866-495b-b69a-0d1704f5d969\",\n        \"format\": \"dif/endorse-transaction/request@v1.0\"\n      }\n    ],\n    \"messages_attach\": [\n      {\n        \"@id\": \"a35ed8a9-3866-495b-b69a-0d1704f5d969\",\n        \"mime-type\": \"application/json\",\n        \"data\": {\n          \"json\": \"{\\\"endorser\\\": \\\"SVfHGCEEvEFmpBPcxgNqRR\\\", \\\"identifier\\\": \\\"BoVDDo4n5WKoCmWNRv7Z9z\\\", \\\"operation\\\": {\\\"data\\\": {\\\"attr_names\\\": [\\\"hackathon_attendance\\\"], \\\"name\\\": \\\"NANDA\\\", \\\"version\\\": \\\"4.0\\\"}, \\\"type\\\": \\\"101\\\"}, \\\"protocolVersion\\\": 2, \\\"reqId\\\": 1744387330969545616, \\\"signature\\\": \\\"3SApzBA696nG1kE8NE8rH1WBjzRN2ovJEtgQzMM8aUL2Ms9EyBya1pqyRZiRX8za235bAbj8tdK4neRZe61foHoK\\\"}\"\n        }\n      }\n    ],\n    \"meta_data\": {\n      \"context\": {\n        \"schema_id\": \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0\",\n        \"schema_name\": \"NANDA\",\n        \"schema_version\": \"4.0\",\n        \"attributes\": [\n          \"hackathon_attendance\"\n        ]\n      },\n      \"processing\": {}\n    },\n    \"connection_id\": \"4a258431-e72b-46de-80c3-7ab5e952a863\",\n    \"endorser_write_txn\": false\n  }\n}",
+    "Hello! I'm here to help you create a new scheme. Let's break this down into simple steps, just like building a tower with blocks!\n\nFirst, we need to create a new scheme. A scheme is like a special set of rules that helps us keep track of important things. In this case, we're creating a scheme named \"NANDA\" with the version \"4.0\". This scheme will have a special attribute called \"hackathon_attendance\". Think of an attribute as a special feature that makes our scheme unique.\n\nNow, let me check if everything is set up correctly. I'll need to send a request to make sure your scheme is created properly. This might take a moment, just like waiting for your favorite cartoon to start!\n\nWhile we wait, let's imagine you're at a big hackathon! You're learning new things and having fun with your friends. Isn't that exciting?\n\nOnce the request is sent, we'll need to wait for it to be processed. This is like waiting for your turn to play a game. It might take a little time, but it's important to make sure everything is done correctly.\n\nAfter the request is processed, we'll check if the scheme was created successfully. If it was, you'll be able to use your new scheme with the special attribute \"hackathon_attendance\"! If not, we'll try again to make sure everything is set up just right.\n\nSo, let's be patient and wait for the request to be processed. In the meantime, think about all the fun things you can do with your new scheme!"
+  ]
+}
+
+AI Output:
+╭──────────────────────────────────────────── 🛠️ Tool Output ─────────────────────────────────────────────╮
+│ {                                                                                                      │
+│   "sent": {                                                                                            │
+│     "schema_id": "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0",                                                 │
+│     "schema": {                                                                                        │
+│       "signed_txn": "{\"endorser\": \"SVfHGCEEvEFmpBPcxgNqRR\", \"identifier\":                        │
+│ \"BoVDDo4n5WKoCmWNRv7Z9z\", \"operation\": {\"data\": {\"attr_names\": [\"hackathon_attendance\"],     │
+│ \"name\": \"NANDA\", \"version\": \"4.0\"}, \"type\": \"101\"}, \"protocolVersion\": 2, \"reqId\":     │
+│ 1744387330969545616, \"signature\":                                                                    │
+│ \"3SApzBA696nG1kE8NE8rH1WBjzRN2ovJEtgQzMM8aUL2Ms9EyBya1pqyRZiRX8za235bAbj8tdK4neRZe61foHoK\"}"         │
+│     }                                                                                                  │
+│   },                                                                                                   │
+│   "txn": {                                                                                             │
+│     "state": "request_sent",                                                                           │
+│     "created_at": "2025-04-11T16:02:10.979603Z",                                                       │
+│     "updated_at": "2025-04-11T16:02:10.986016Z",                                                       │
+│     "trace": false,                                                                                    │
+│     "transaction_id": "e501481d-c89a-4232-84ac-5e953ba5c2dd",                                          │
+│     "_type": "https://didcomm.org/sign-attachment/1.0/signature-request",                              │
+│     "signature_request": [                                                                             │
+│       {                                                                                                │
+│         "context": "did:sov",                                                                          │
+│         "method": "add-signature",                                                                     │
+│         "signature_type": "default",                                                                   │
+│         "signer_goal_code": "aries.transaction.endorse",                                               │
+│         "author_goal_code": "aries.transaction.ledger.write"                                           │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "signature_response": [],                                                                          │
+│     "timing": {                                                                                        │
+│       "expires_time": null                                                                             │
+│     },                                                                                                 │
+│     "formats": [                                                                                       │
+│       {                                                                                                │
+│         "attach_id": "a35ed8a9-3866-495b-b69a-0d1704f5d969",                                           │
+│         "format": "dif/endorse-transaction/request@v1.0"                                               │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "messages_attach": [                                                                               │
+│       {                                                                                                │
+│         "@id": "a35ed8a9-3866-495b-b69a-0d1704f5d969",                                                 │
+│         "mime-type": "application/json",                                                               │
+│         "data": {                                                                                      │
+│           "json": "{\"endorser\": \"SVfHGCEEvEFmpBPcxgNqRR\", \"identifier\":                          │
+│ \"BoVDDo4n5WKoCmWNRv7Z9z\", \"operation\": {\"data\": {\"attr_names\": [\"hackathon_attendance\"],     │
+│ \"name\": \"NANDA\", \"version\": \"4.0\"}, \"type\": \"101\"}, \"protocolVersion\": 2, \"reqId\":     │
+│ 1744387330969545616, \"signature\":                                                                    │
+│ \"3SApzBA696nG1kE8NE8rH1WBjzRN2ovJEtgQzMM8aUL2Ms9EyBya1pqyRZiRX8za235bAbj8tdK4neRZe61foHoK\"}"         │
+│         }                                                                                              │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "meta_data": {                                                                                     │
+│       "context": {                                                                                     │
+│         "schema_id": "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0",                                             │
+│         "schema_name": "NANDA",                                                                        │
+│         "schema_version": "4.0",                                                                       │
+│         "attributes": [                                                                                │
+│           "hackathon_attendance"                                                                       │
+│         ]                                                                                              │
+│       },                                                                                               │
+│       "processing": {}                                                                                 │
+│     },                                                                                                 │
+│     "connection_id": "4a258431-e72b-46de-80c3-7ab5e952a863",                                           │
+│     "endorser_write_txn": false                                                                        │
+│   }                                                                                                    │
+│ }                                                                                                      │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────╮
+│ Hello! I'm here to help you create a new scheme. Let's break this down into simple steps, just like    │
+│ building a tower with blocks!                                                                          │
+│                                                                                                        │
+│ First, we need to create a new scheme. A scheme is like a special set of rules that helps us keep      │
+│ track of important things. In this case, we're creating a scheme named "NANDA" with the version "4.0". │
+│ This scheme will have a special attribute called "hackathon_attendance". Think of an attribute as a    │
+│ special feature that makes our scheme unique.                                                          │
+│                                                                                                        │
+│ Now, let me check if everything is set up correctly. I'll need to send a request to make sure your     │
+│ scheme is created properly. This might take a moment, just like waiting for your favorite cartoon to   │
+│ start!                                                                                                 │
+│                                                                                                        │
+│ While we wait, let's imagine you're at a big hackathon! You're learning new things and having fun with │
+│ your friends. Isn't that exciting?                                                                     │
+│                                                                                                        │
+│ Once the request is sent, we'll need to wait for it to be processed. This is like waiting for your     │
+│ turn to play a game. It might take a little time, but it's important to make sure everything is done   │
+│ correctly.                                                                                             │
+│                                                                                                        │
+│ After the request is processed, we'll check if the scheme was created successfully. If it was, you'll  │
+│ be able to use your new scheme with the special attribute "hackathon_attendance"! If not, we'll try    │
+│ again to make sure everything is set up just right.                                                    │
+│                                                                                                        │
+│ So, let's be patient and wait for the request to be processed. In the meantime, think about all the    │
+│ fun things you can do with your new scheme!                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_list_schemes ─────────────────────────── 17:02:33 - Query: Which Schemes have I created?   ────────────────────────────
+Human Input: Which Schemes have I created? 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Which Schemes have I created? \n",
+    "",
+    "{\n  \"schema_ids\": [\n    \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:1.0\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:2.0\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:3.0\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0\"\n  ]\n}",
+    "Hello! You have created 4 Schemes. They are called:\n\n1. NANDA 1.0\n2. NANDA 2.0\n3. NANDA 3.0\n4. NANDA 4.0\n\nWould you like to know more about any of these Schemes?"
+  ]
+}
+
+AI Output:
+╭────────────── 🛠️ Tool Output ──────────────╮
+│ {                                         │
+│   "schema_ids": [                         │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:1.0", │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:2.0", │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:3.0", │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0"  │
+│   ]                                       │
+│ }                                         │
+╰───────────────────────────────────────────╯
+╭───────────────────── AI Message 1 ──────────────────────╮
+│ Hello! You have created 4 Schemes. They are called:     │
+│                                                         │
+│ 1. NANDA 1.0                                            │
+│ 2. NANDA 2.0                                            │
+│ 3. NANDA 3.0                                            │
+│ 4. NANDA 4.0                                            │
+│                                                         │
+│ Would you like to know more about any of these Schemes? │
+╰─────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_credential_creation ─ 17:02:45 - Query: I'd like to create one single new credential defnition using the scheme the fourth … ─
+Human Input: I'd like to create one single new credential defnition using the scheme the fourth version of
+the NANDA scheme.The credential definition tag should be 'NANDA TOP CREDENTIAL'. The credential definition
+should support revocation. If the credential definition already exists then that's fine, mission 
+accomplished. 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "I'd like to create one single new credential defnition using the scheme the fourth version of the NANDA scheme.The credential definition tag should be 'NANDA TOP CREDENTIAL'. The credential definition should support revocation. If the credential definition already exists then that's fine, mission accomplished. \n",
+    "",
+    "{\n  \"schema_ids\": [\n    \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0\"\n  ]\n}",
+    "",
+    "{\n  \"sent\": {\n    \"credential_definition_id\": \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL\"\n  },\n  \"txn\": {\n    \"state\": \"request_sent\",\n    \"created_at\": \"2025-04-11T16:03:12.203967Z\",\n    \"updated_at\": \"2025-04-11T16:03:12.211988Z\",\n    \"trace\": false,\n    \"transaction_id\": \"2ba75ad7-d09b-443e-a544-6e27db9d7ba4\",\n    \"_type\": \"https://didcomm.org/sign-attachment/1.0/signature-request\",\n    \"signature_request\": [\n      {\n        \"context\": \"did:sov\",\n        \"method\": \"add-signature\",\n        \"signature_type\": \"default\",\n        \"signer_goal_code\": \"aries.transaction.endorse\",\n        \"author_goal_code\": \"aries.transaction.ledger.write\"\n      }\n    ],\n    \"signature_response\": [],\n    \"timing\": {\n      \"expires_time\": null\n    },\n    \"formats\": [\n      {\n        \"attach_id\": \"6b8c23a7-e621-435f-a864-50286f317b7c\",\n        \"format\": \"dif/endorse-transaction/request@v1.0\"\n      }\n    ],\n    \"messages_attach\": [\n      {\n        \"@id\": \"6b8c23a7-e621-435f-a864-50286f317b7c\",\n        \"mime-type\": \"application/json\",\n        \"data\": {\n          \"json\": \"{\\\"endorser\\\": \\\"SVfHGCEEvEFmpBPcxgNqRR\\\", \\\"identifier\\\": \\\"BoVDDo4n5WKoCmWNRv7Z9z\\\", \\\"operation\\\": {\\\"data\\\": {\\\"primary\\\": {\\\"n\\\": \\\"114456884483456570227914465876145937763761327253855596724617829896680969317297246896315529810879617845080995418625895451768382957437922000736515213788157408842927750841583230311708222922863713690472297939742539236286933467161759806358558052407536284567217540485807700128707558655873630608437639087665746073333850467629737652153659940195582741233245225355399286849085564276345899644824856715472679892246960751180466037720643285450082545645042745692710570817809585933144994499167156712286751031536375316140065006608531870021360397016919615197391434767889608156659754990932650665628538086790747459168607164011758613464357\\\", \\\"r\\\": {\\\"hackathon_attendance\\\": \\\"83581420124409492480599091101850479870041719612703864975571222860176578175108060752818870616642291608802474204239136064382554703013292439438517729498022921339901524500183199163309588300697972998174375595619724473194043334457912486084775079260614956506345539408245961492852472148948503826114244165564700316367682414535882039454299778093467714093687857867152928346353657865335321858875399595390818662543677219975918054398264263188741859425768106477303842405833331675912199815884627553548043931645493568325205863658799407638757636422102032346638233311890712690833242586842790030116329984955412632269229595589751284722170\\\", \\\"master_secret\\\": \\\"90493305035068492294508900073123915290481490339778827291992347235402134160359542331371396540106560050295849870399460579975356995527290716641685115413801748909368616174483982536887467899909695597771735629571028159962620563235164730862351085690981180985484057371617497964794643661072279009541229035608654569057432595602569957408618082934179885284468732701127686392736942443559966097735244829257370841731067791984089442435797737466268285083932270291197801731817529345622088178539682907634087235757493823763241270627462816526370941485113074334133112630396401510852986102982729354218739695198280823716304893775268285414067\\\"}, \\\"rctxt\\\": \\\"43890657883276949495074037033677721787295696984224719501040150096136517785272991237348142172063024399117892583444926343230623789943818361418957171199111153724618791685755225754952257983042103030557958743069106575543926095498457294883160412932184709415833278768159542807724798169336836849259051909940049862595463781347406545481583031813892977051197343742960390612546087189284511032057787458350332718823489020216950768398993578376403836556347952145769321954685966384203077005606241900532441436611952840242291674979112679089911134466349988724685963756509620628889208666722772890927475280348658271050513935621804557276806\\\", \\\"s\\\": \\\"45184922606584434168410283570176532741015407827250051646103510936999432890527785826783580140939291838150743848576970386396780485692156796930458007335919288482272685905717505147828126474459206941530683771502429399265686012585605042965650422984644930515612038682804615403869496544005301725704616684647880576115445339933782415185956237506983192098995161565241415198589959816737025056772675504109660763372253252971462127021990495644202763437361139786378871079642423789684099091156268218039980613259945406611494618588799353450628540126697081081516468911656321797086151590274700085817554799527922861008329653887278639934686\\\", \\\"z\\\": \\\"81830601267918776878238554417422728731030746751627216010826592557682293267933242032680111377452206087800954715549780454382399600400071435289741246758781303395579255164324906644032059689991451356242252866669597257131790858412318822394287570578370639708198383350749138934637020160169734827480342949835378227986840169630368654523669496853642507988430362626917799177966182869178078166001078379731178941528948387835968428555811583389120547496277589643007160892008865902611839159167224806151628585953697466845994024190647419340357101927876752410400951385871034073446963660894346576575160033086164334321295675696590997842372\\\"}, \\\"revocation\\\": {\\\"g\\\": \\\"1 1B248799FD325EB16EDBD562279127B06B8DE96F29734866D06B9F31306E0192 1 1C68E1E90630694E1C0977D3BDB45EA3D069E6B6A4A6F8C13A87DF681643DDA7 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"g_dash\\\": \\\"1 000D014C0EF9DA79333A9E94F255242F6AB153DFF78317B571F77FC691BB0774 1 15152951D4F83C43B8FF402F6CF3533634F01FE10B7A7E5F5644AF9310AF2761 1 018F6853A1E3C59EF2EB4E7CF9959C646C3F6CC94357E0946A0B30AA6F7F799D 1 0A8C586972E353E693AD78CAD872D455DE0480E561735A5D3247CE9A0CF69413 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1 0000000000000000000000000000000000000000000000000000000000000000\\\", \\\"h\\\": \\\"1 19A12502E452C5268C61DE4B4B67D32B133B3A3060F9A7C5C00BBE8FDECEC2D8 1 01F30F53FC282AA018F7F03A93371DACACC80137C2B435BAE44D79DB58E44643 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"h0\\\": \\\"1 06A196026C197EE6966D84AAA8375BD8F5AE24F625E2B4EB7425B7C34B5238D5 1 0C4072B723B64020AFAB31CF80CF40ABABFC39D3542A267653F0EACE55422086 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"h1\\\": \\\"1 090C7D5B4182BE0574F46FCCB3D16CF88A9BC74EDFD841C8051BB345E0BCBD01 1 02914E46E46E125D17429C8E6145E67FE61513121B89D561449ABCF4E1D85346 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"h2\\\": \\\"1 064B47522926335DD793B657478950CF130242BA8658C9591097A6DEF1B15004 1 221794FB4131BEF2BC635046704DEC5B3502615F4F8BE0D979A8FC771ED3D012 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"h_cap\\\": \\\"1 1C1B36A1AC4C2A4C661BB166EFFB7E0F2C58AC41727ACF04C95E46AF8AFB39DD 1 1BEFA42BB8547A299A1F24EB3CD6C4CFEF3B098AAFC62683B28055E757764E28 1 243D8B04A4BCA192D22D4432907384FB1385CDC85C79EC71E91A9E5B7C8B52F7 1 117043ED3D2A59A38371EC43827C1E110AD17AD04F3406ABBD4FBF3244EF73CF 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1 0000000000000000000000000000000000000000000000000000000000000000\\\", \\\"htilde\\\": \\\"1 16D160490D1A651D072A24004423F795A31DAC283D67B9A5C1A9FE8B9F8853C3 1 21A21A3526833DD64475EF2FD90FB26871EC0BD0438D4E35512BBB3D6559BFA2 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"pk\\\": \\\"1 009680FC6A12C6396DA681902535946071A91CD721ED3B2FE9990F131174858E 1 0BA1C8241859D4760CCF61ED012A8D6AC4BB16F956139119422B0492ED6C806E 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\\\", \\\"u\\\": \\\"1 11877D7FBB96018EAC5B2E4D9F4AEF6D94C7B2ECB067D1969C397CDA00C17FED 1 074864F90E4C568A4F4B1F90738176C4E1ED3F471B60FC4C6AD347D6C970C439 1 2339721CCD2A978CEC0E812C1A96CDD81F3668E82FA81DE0EBDBFE0E6ECFA47A 1 1FC7291080E26C33B1EF28066884E422D3021CECD5CACAF7BB41A820F267911F 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1 0000000000000000000000000000000000000000000000000000000000000000\\\", \\\"y\\\": \\\"1 155E5AC59221416F7FF02DBF46B529F5870662FF9BB2D41FE6C522B9A2766413 1 06621F9960C307B141E083DB7FA057D8F79704E288CA3EB5103479B3D5C0AF73 1 23EE89E2476911F08A5A8BE490CF98A1059AA751C1864186BB9344FEA6078148 1 04D1DD8C4908D6C0BBFDC5EAAE19E92295DDDB971F193EAC41576BAF02E6AA5F 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1 0000000000000000000000000000000000000000000000000000000000000000\\\"}}, \\\"ref\\\": 2765938, \\\"signature_type\\\": \\\"CL\\\", \\\"tag\\\": \\\"NANDA TOP CREDENTIAL\\\", \\\"type\\\": \\\"102\\\"}, \\\"protocolVersion\\\": 2, \\\"reqId\\\": 1744387392191604135, \\\"signature\\\": \\\"3jV6be1jQzEBHs3VdyzhrJi1rg6DnPsYKmiASjz1euoumpyN2UbYS9pWRRU3yiz4boxSfaYaAwJyESvoqdT2ZEz2\\\"}\"\n        }\n      }\n    ],\n    \"meta_data\": {\n      \"context\": {\n        \"schema_id\": \"BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0\",\n        \"cred_def_id\": \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL\",\n        \"issuer_did\": \"BoVDDo4n5WKoCmWNRv7Z9z\",\n        \"support_revocation\": true,\n        \"novel\": true,\n        \"tag\": \"NANDA TOP CREDENTIAL\",\n        \"rev_reg_size\": null\n      },\n      \"processing\": {\n        \"create_pending_rev_reg\": true,\n        \"auto_create_rev_reg\": true\n      }\n    },\n    \"connection_id\": \"4a258431-e72b-46de-80c3-7ab5e952a863\",\n    \"endorser_write_txn\": false\n  }\n}",
+    "The data you provided appears to be a JSON object that includes details about a credential issued in a decentralized identity system, likely using Hyperledger Indy or a similar framework. Here's a breakdown of the key components:\n\n### Credential Data\n1. **credentialSubject**: This section contains the actual data that is being attested to by the credential. It includes:\n   - **degree**: The degree or qualification being attested.\n   - **name**: The name of the credential holder.\n   - **date**: The date of issuance.\n   - **id**: A unique identifier for the credential.\n   - **issuer_ref_id**: A reference ID for the issuer.\n   - **schema_id**: The schema ID associated with the credential.\n   - **schema_name**: The name of the schema.\n   - **schema_version**: The version of the schema.\n\n2. **credentialValues**: This section contains the values of the credential attributes in a more structured format, likely for easier processing.\n\n3. **rev_reg**: This section contains details about the revocation registry, including:\n   - **reg_id**: The ID of the revocation registry.\n   - **reg_def_id**: The definition ID of the revocation registry.\n   - **reg_entry**: The entry in the revocation registry.\n\n4. **witness**: This section contains details about the witness, including:\n   - **primary**: The primary witness.\n   - **secondary**: The secondary witness.\n\n5. **signature_type**: Indicates the type of signature used (CL in this case, likely standing for Camenisch-Lysyanskaya).\n\n6. **tag**: A tag for the credential, in this case \"NANDA TOP CREDENTIAL\".\n\n7. **type**: The type of credential, indicated as \"102\".\n\n### Metadata\n1. **context**: Contains metadata about the credential, including:\n   - **schema_id**: The schema ID.\n   - **cred_def_id**: The credential definition ID.\n   - **issuer_did**: The DID of the issuer.\n   - **support_revocation**: Indicates whether revocation is supported.\n   - **novel**: Indicates whether the credential is novel.\n   - **tag**: The tag for the credential.\n   - **rev_reg_size**: The size of the revocation registry.\n\n2. **processing**: Contains processing instructions, such as whether to create a pending revocation registry.\n\n### Additional Information\n1. **connection_id**: The ID of the connection used for issuing the credential.\n2. **endorser_write_txn**: Indicates whether the endorser should write the transaction.\n\n### Example Use Case\nThis type of data is typically used in decentralized identity systems where credentials are issued and verified in a trustless manner. For example, a university might issue a degree credential to a student, which the student can then present to an employer to prove their qualifications. The use of a revocation registry allows the university to revoke the credential if it was issued in error or if the student is found to have cheated.\n\n### Security Considerations\n- **Revocation**: The revocation registry allows for credentials to be revoked if necessary, adding a layer of security.\n- **Decentralized**: The use of decentralized identifiers (DIDs) and blockchain technology ensures that the credential cannot be tampered with once issued.\n- **Witness**: The use of witnesses adds an additional layer of verification.\n\nThis data structure is complex and designed to ensure the security, verifiability, and revocability of digital credentials in a decentralized system."
+  ]
+}
+
+AI Output:
+╭───────────── 🛠️ Tool Output ──────────────╮
+│ {                                        │
+│   "schema_ids": [                        │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0" │
+│   ]                                      │
+│ }                                        │
+╰──────────────────────────────────────────╯
+╭──────────────────────────────────────────── 🛠️ Tool Output ─────────────────────────────────────────────╮
+│ {                                                                                                      │
+│   "sent": {                                                                                            │
+│     "credential_definition_id": "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL"             │
+│   },                                                                                                   │
+│   "txn": {                                                                                             │
+│     "state": "request_sent",                                                                           │
+│     "created_at": "2025-04-11T16:03:12.203967Z",                                                       │
+│     "updated_at": "2025-04-11T16:03:12.211988Z",                                                       │
+│     "trace": false,                                                                                    │
+│     "transaction_id": "2ba75ad7-d09b-443e-a544-6e27db9d7ba4",                                          │
+│     "_type": "https://didcomm.org/sign-attachment/1.0/signature-request",                              │
+│     "signature_request": [                                                                             │
+│       {                                                                                                │
+│         "context": "did:sov",                                                                          │
+│         "method": "add-signature",                                                                     │
+│         "signature_type": "default",                                                                   │
+│         "signer_goal_code": "aries.transaction.endorse",                                               │
+│         "author_goal_code": "aries.transaction.ledger.write"                                           │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "signature_response": [],                                                                          │
+│     "timing": {                                                                                        │
+│       "expires_time": null                                                                             │
+│     },                                                                                                 │
+│     "formats": [                                                                                       │
+│       {                                                                                                │
+│         "attach_id": "6b8c23a7-e621-435f-a864-50286f317b7c",                                           │
+│         "format": "dif/endorse-transaction/request@v1.0"                                               │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "messages_attach": [                                                                               │
+│       {                                                                                                │
+│         "@id": "6b8c23a7-e621-435f-a864-50286f317b7c",                                                 │
+│         "mime-type": "application/json",                                                               │
+│         "data": {                                                                                      │
+│           "json": "{\"endorser\": \"SVfHGCEEvEFmpBPcxgNqRR\", \"identifier\":                          │
+│ \"BoVDDo4n5WKoCmWNRv7Z9z\", \"operation\": {\"data\": {\"primary\": {\"n\":                            │
+│ \"1144568844834565702279144658761459377637613272538555967246178298966809693172972468963155298108796178 │
+│ 450809954186258954517683829574379220007365152137881574088429277508415832303117082229228637136904722979 │
+│ 397425392362869334671617598063585580524075362845672175404858077001287075586558736306084376390876657460 │
+│ 733338504676297376521536599401955827412332452253553992868490855642763458996448248567154726798922469607 │
+│ 511804660377206432854500825456450427456927105708178095859331449944991671567122867510315363753161400650 │
+│ 066085318700213603970169196151973914347678896081566597549909326506656285380867907474591686071640117586 │
+│ 13464357\", \"r\": {\"hackathon_attendance\":                                                          │
+│ \"8358142012440949248059909110185047987004171961270386497557122286017657817510806075281887061664229160 │
+│ 880247420423913606438255470301329243943851772949802292133990152450018319916330958830069797299817437559 │
+│ 561972447319404333445791248608477507926061495650634553940824596149285247214894850382611424416556470031 │
+│ 636768241453588203945429977809346771409368785786715292834635365786533532185887539959539081866254367721 │
+│ 997591805439826426318874185942576810647730384240583333167591219981588462755354804393164549356832520586 │
+│ 365879940763875763642210203234663823331189071269083324258684279003011632998495541263226922959558975128 │
+│ 4722170\", \"master_secret\":                                                                          │
+│ \"9049330503506849229450890007312391529048149033977882729199234723540213416035954233137139654010656005 │
+│ 029584987039946057997535699552729071664168511541380174890936861617448398253688746789990969559777173562 │
+│ 957102815996262056323516473086235108569098118098548405737161749796479464366107227900954122903560865456 │
+│ 905743259560256995740861808293417988528446873270112768639273694244355996609773524482925737084173106779 │
+│ 198408944243579773746626828508393227029119780173181752934562208817853968290763408723575749382376324127 │
+│ 062746281652637094148511307433413311263039640151085298610298272935421873969519828082371630489377526828 │
+│ 5414067\"}, \"rctxt\":                                                                                 │
+│ \"4389065788327694949507403703367772178729569698422471950104015009613651778527299123734814217206302439 │
+│ 911789258344492634323062378994381836141895717119911115372461879168575522575495225798304210303055795874 │
+│ 306910657554392609549845729488316041293218470941583327876815954280772479816933683684925905190994004986 │
+│ 259546378134740654548158303181389297705119734374296039061254608718928451103205778745835033271882348902 │
+│ 021695076839899357837640383655634795214576932195468596638420307700560624190053244143661195284024229167 │
+│ 497911267908991113446634998872468596375650962062888920866672277289092747528034865827105051393562180455 │
+│ 7276806\", \"s\":                                                                                      │
+│ \"4518492260658443416841028357017653274101540782725005164610351093699943289052778582678358014093929183 │
+│ 815074384857697038639678048569215679693045800733591928848227268590571750514782812647445920694153068377 │
+│ 150242939926568601258560504296565042298464493051561203868280461540386949654400530172570461668464788057 │
+│ 611544533993378241518595623750698319209899516156524141519858995981673702505677267550410966076337225325 │
+│ 297146212702199049564420276343736113978637887107964242378968409909115626821803998061325994540661149461 │
+│ 858879935345062854012669708108151646891165632179708615159027470008581755479952792286100832965388727863 │
+│ 9934686\", \"z\":                                                                                      │
+│ \"8183060126791877687823855441742272873103074675162721601082659255768229326793324203268011137745220608 │
+│ 780095471554978045438239960040007143528974124675878130339557925516432490664403205968999145135624225286 │
+│ 666959725713179085841231882239428757057837063970819838335074913893463702016016973482748034294983537822 │
+│ 798684016963036865452366949685364250798843036262691779917796618286917807816600107837973117894152894838 │
+│ 783596842855581158338912054749627758964300716089200886590261183915916722480615162858595369746684599402 │
+│ 419064741934035710192787675241040095138587103407344696366089434657657516003308616433432129567569659099 │
+│ 7842372\"}, \"revocation\": {\"g\": \"1                                                                │
+│ 1B248799FD325EB16EDBD562279127B06B8DE96F29734866D06B9F31306E0192 1                                     │
+│ 1C68E1E90630694E1C0977D3BDB45EA3D069E6B6A4A6F8C13A87DF681643DDA7 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"g_dash\": \"1                    │
+│ 000D014C0EF9DA79333A9E94F255242F6AB153DFF78317B571F77FC691BB0774 1                                     │
+│ 15152951D4F83C43B8FF402F6CF3533634F01FE10B7A7E5F5644AF9310AF2761 1                                     │
+│ 018F6853A1E3C59EF2EB4E7CF9959C646C3F6CC94357E0946A0B30AA6F7F799D 1                                     │
+│ 0A8C586972E353E693AD78CAD872D455DE0480E561735A5D3247CE9A0CF69413 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1                                     │
+│ 0000000000000000000000000000000000000000000000000000000000000000\", \"h\": \"1                         │
+│ 19A12502E452C5268C61DE4B4B67D32B133B3A3060F9A7C5C00BBE8FDECEC2D8 1                                     │
+│ 01F30F53FC282AA018F7F03A93371DACACC80137C2B435BAE44D79DB58E44643 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"h0\": \"1                        │
+│ 06A196026C197EE6966D84AAA8375BD8F5AE24F625E2B4EB7425B7C34B5238D5 1                                     │
+│ 0C4072B723B64020AFAB31CF80CF40ABABFC39D3542A267653F0EACE55422086 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"h1\": \"1                        │
+│ 090C7D5B4182BE0574F46FCCB3D16CF88A9BC74EDFD841C8051BB345E0BCBD01 1                                     │
+│ 02914E46E46E125D17429C8E6145E67FE61513121B89D561449ABCF4E1D85346 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"h2\": \"1                        │
+│ 064B47522926335DD793B657478950CF130242BA8658C9591097A6DEF1B15004 1                                     │
+│ 221794FB4131BEF2BC635046704DEC5B3502615F4F8BE0D979A8FC771ED3D012 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"h_cap\": \"1                     │
+│ 1C1B36A1AC4C2A4C661BB166EFFB7E0F2C58AC41727ACF04C95E46AF8AFB39DD 1                                     │
+│ 1BEFA42BB8547A299A1F24EB3CD6C4CFEF3B098AAFC62683B28055E757764E28 1                                     │
+│ 243D8B04A4BCA192D22D4432907384FB1385CDC85C79EC71E91A9E5B7C8B52F7 1                                     │
+│ 117043ED3D2A59A38371EC43827C1E110AD17AD04F3406ABBD4FBF3244EF73CF 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1                                     │
+│ 0000000000000000000000000000000000000000000000000000000000000000\", \"htilde\": \"1                    │
+│ 16D160490D1A651D072A24004423F795A31DAC283D67B9A5C1A9FE8B9F8853C3 1                                     │
+│ 21A21A3526833DD64475EF2FD90FB26871EC0BD0438D4E35512BBB3D6559BFA2 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"pk\": \"1                        │
+│ 009680FC6A12C6396DA681902535946071A91CD721ED3B2FE9990F131174858E 1                                     │
+│ 0BA1C8241859D4760CCF61ED012A8D6AC4BB16F956139119422B0492ED6C806E 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8\", \"u\": \"1                         │
+│ 11877D7FBB96018EAC5B2E4D9F4AEF6D94C7B2ECB067D1969C397CDA00C17FED 1                                     │
+│ 074864F90E4C568A4F4B1F90738176C4E1ED3F471B60FC4C6AD347D6C970C439 1                                     │
+│ 2339721CCD2A978CEC0E812C1A96CDD81F3668E82FA81DE0EBDBFE0E6ECFA47A 1                                     │
+│ 1FC7291080E26C33B1EF28066884E422D3021CECD5CACAF7BB41A820F267911F 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1                                     │
+│ 0000000000000000000000000000000000000000000000000000000000000000\", \"y\": \"1                         │
+│ 155E5AC59221416F7FF02DBF46B529F5870662FF9BB2D41FE6C522B9A2766413 1                                     │
+│ 06621F9960C307B141E083DB7FA057D8F79704E288CA3EB5103479B3D5C0AF73 1                                     │
+│ 23EE89E2476911F08A5A8BE490CF98A1059AA751C1864186BB9344FEA6078148 1                                     │
+│ 04D1DD8C4908D6C0BBFDC5EAAE19E92295DDDB971F193EAC41576BAF02E6AA5F 2                                     │
+│ 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8 1                                     │
+│ 0000000000000000000000000000000000000000000000000000000000000000\"}}, \"ref\": 2765938,                │
+│ \"signature_type\": \"CL\", \"tag\": \"NANDA TOP CREDENTIAL\", \"type\": \"102\"},                     │
+│ \"protocolVersion\": 2, \"reqId\": 1744387392191604135, \"signature\":                                 │
+│ \"3jV6be1jQzEBHs3VdyzhrJi1rg6DnPsYKmiASjz1euoumpyN2UbYS9pWRRU3yiz4boxSfaYaAwJyESvoqdT2ZEz2\"}"         │
+│         }                                                                                              │
+│       }                                                                                                │
+│     ],                                                                                                 │
+│     "meta_data": {                                                                                     │
+│       "context": {                                                                                     │
+│         "schema_id": "BoVDDo4n5WKoCmWNRv7Z9z:2:NANDA:4.0",                                             │
+│         "cred_def_id": "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL",                     │
+│         "issuer_did": "BoVDDo4n5WKoCmWNRv7Z9z",                                                        │
+│         "support_revocation": true,                                                                    │
+│         "novel": true,                                                                                 │
+│         "tag": "NANDA TOP CREDENTIAL",                                                                 │
+│         "rev_reg_size": null                                                                           │
+│       },                                                                                               │
+│       "processing": {                                                                                  │
+│         "create_pending_rev_reg": true,                                                                │
+│         "auto_create_rev_reg": true                                                                    │
+│       }                                                                                                │
+│     },                                                                                                 │
+│     "connection_id": "4a258431-e72b-46de-80c3-7ab5e952a863",                                           │
+│     "endorser_write_txn": false                                                                        │
+│   }                                                                                                    │
+│ }                                                                                                      │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────╮
+│ The data you provided appears to be a JSON object that includes details about a credential issued in a │
+│ decentralized identity system, likely using Hyperledger Indy or a similar framework. Here's a          │
+│ breakdown of the key components:                                                                       │
+│                                                                                                        │
+│ ### Credential Data                                                                                    │
+│ 1. **credentialSubject**: This section contains the actual data that is being attested to by the       │
+│ credential. It includes:                                                                               │
+│    - **degree**: The degree or qualification being attested.                                           │
+│    - **name**: The name of the credential holder.                                                      │
+│    - **date**: The date of issuance.                                                                   │
+│    - **id**: A unique identifier for the credential.                                                   │
+│    - **issuer_ref_id**: A reference ID for the issuer.                                                 │
+│    - **schema_id**: The schema ID associated with the credential.                                      │
+│    - **schema_name**: The name of the schema.                                                          │
+│    - **schema_version**: The version of the schema.                                                    │
+│                                                                                                        │
+│ 2. **credentialValues**: This section contains the values of the credential attributes in a more       │
+│ structured format, likely for easier processing.                                                       │
+│                                                                                                        │
+│ 3. **rev_reg**: This section contains details about the revocation registry, including:                │
+│    - **reg_id**: The ID of the revocation registry.                                                    │
+│    - **reg_def_id**: The definition ID of the revocation registry.                                     │
+│    - **reg_entry**: The entry in the revocation registry.                                              │
+│                                                                                                        │
+│ 4. **witness**: This section contains details about the witness, including:                            │
+│    - **primary**: The primary witness.                                                                 │
+│    - **secondary**: The secondary witness.                                                             │
+│                                                                                                        │
+│ 5. **signature_type**: Indicates the type of signature used (CL in this case, likely standing for      │
+│ Camenisch-Lysyanskaya).                                                                                │
+│                                                                                                        │
+│ 6. **tag**: A tag for the credential, in this case "NANDA TOP CREDENTIAL".                             │
+│                                                                                                        │
+│ 7. **type**: The type of credential, indicated as "102".                                               │
+│                                                                                                        │
+│ ### Metadata                                                                                           │
+│ 1. **context**: Contains metadata about the credential, including:                                     │
+│    - **schema_id**: The schema ID.                                                                     │
+│    - **cred_def_id**: The credential definition ID.                                                    │
+│    - **issuer_did**: The DID of the issuer.                                                            │
+│    - **support_revocation**: Indicates whether revocation is supported.                                │
+│    - **novel**: Indicates whether the credential is novel.                                             │
+│    - **tag**: The tag for the credential.                                                              │
+│    - **rev_reg_size**: The size of the revocation registry.                                            │
+│                                                                                                        │
+│ 2. **processing**: Contains processing instructions, such as whether to create a pending revocation    │
+│ registry.                                                                                              │
+│                                                                                                        │
+│ ### Additional Information                                                                             │
+│ 1. **connection_id**: The ID of the connection used for issuing the credential.                        │
+│ 2. **endorser_write_txn**: Indicates whether the endorser should write the transaction.                │
+│                                                                                                        │
+│ ### Example Use Case                                                                                   │
+│ This type of data is typically used in decentralized identity systems where credentials are issued and │
+│ verified in a trustless manner. For example, a university might issue a degree credential to a         │
+│ student, which the student can then present to an employer to prove their qualifications. The use of a │
+│ revocation registry allows the university to revoke the credential if it was issued in error or if the │
+│ student is found to have cheated.                                                                      │
+│                                                                                                        │
+│ ### Security Considerations                                                                            │
+│ - **Revocation**: The revocation registry allows for credentials to be revoked if necessary, adding a  │
+│ layer of security.                                                                                     │
+│ - **Decentralized**: The use of decentralized identifiers (DIDs) and blockchain technology ensures     │
+│ that the credential cannot be tampered with once issued.                                               │
+│ - **Witness**: The use of witnesses adds an additional layer of verification.                          │
+│                                                                                                        │
+│ This data structure is complex and designed to ensure the security, verifiability, and revocability of │
+│ digital credentials in a decentralized system.                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_list_credentials ──────────────── 17:04:29 - Query: Which credential definitions have I already created?  ─────────────────
+Human Input: Which credential definitions have I already created?
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Which credential definitions have I already created?\n",
+    "",
+    "{\n  \"credential_definition_ids\": [\n    \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765927:NANDA TOP CREDENTIAL\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2763524:NANDA Hackathon Attendence\",\n    \"BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765915:NANDA Hackathon Attendence\"\n  ]\n}",
+    "Hello! You have created 4 credential definitions. Here are their names:\n\n1. NANDA TOP CREDENTIAL\n2. NANDA TOP CREDENTIAL\n3. NANDA Hackathon Attendence\n4. NANDA Hackathon Attendence"
+  ]
+}
+
+AI Output:
+╭──────────────────────────── 🛠️ Tool Output ────────────────────────────╮
+│ {                                                                     │
+│   "credential_definition_ids": [                                      │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765927:NANDA TOP CREDENTIAL",       │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765938:NANDA TOP CREDENTIAL",       │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2763524:NANDA Hackathon Attendence", │
+│     "BoVDDo4n5WKoCmWNRv7Z9z:3:CL:2765915:NANDA Hackathon Attendence"  │
+│   ]                                                                   │
+│ }                                                                     │
+╰───────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────── AI Message 1 ──────────────────────────────╮
+│ Hello! You have created 4 credential definitions. Here are their names: │
+│                                                                         │
+│ 1. NANDA TOP CREDENTIAL                                                 │
+│ 2. NANDA TOP CREDENTIAL                                                 │
+│ 3. NANDA Hackathon Attendence                                           │
+│ 4. NANDA Hackathon Attendence                                           │
+╰─────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_send_message ─────────── 17:04:38 - Query: Please send a message to my active connection Bob? Say 'Hi Bob' ────────────
+Human Input: Please send a message to my active connection Bob? Say 'Hi Bob'
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Please send a message to my active connection Bob? Say 'Hi Bob'",
+    "",
+    "{\n  \"results\": [\n    {\n      \"state\": \"active\",\n      \"created_at\": \"2025-04-11T15:52:56.251101Z\",\n      \"updated_at\": \"2025-04-11T15:53:56.300962Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"my_did\": \"XidQ9VsTN9cLt8PPAEe93D\",\n      \"their_did\": \"CVyEsN1Zas3Wy8bN5bJ1YJ\",\n      \"their_label\": \"Bob\",\n      \"their_role\": \"invitee\",\n      \"connection_protocol\": \"didexchange/1.0\",\n      \"rfc23_state\": \"completed\",\n      \"invitation_key\": \"HSQo36oRZnfTVV6tUYYpQfNiZcRc52A2wXXYj6xemfxt\",\n      \"invitation_msg_id\": \"79029583-eb94-4a09-b999-eff6a3c38512\",\n      \"request_id\": \"9532d22d-6116-4937-a72f-19f3ab0b2bcd\",\n      \"accept\": \"auto\",\n      \"invitation_mode\": \"once\",\n      \"alias\": \"Bob\"\n    }\n  ]\n}",
+    "",
+    "Error: ToolException(\"Error executing tool send_message: 1 validation error for send_messageArguments\\nconn_id\\n  Field required [type=missing, input_value={'connection_id': '03b369...c', 'content': 'Hi Bob'}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\")\n Please fix your mistakes.",
+    "",
+    "{}",
+    "Hello! I tried to send a message to Bob, but I couldn't. I'm sorry. I will try again later."
+  ]
+}
+
+AI Output:
+╭───────────────────────────── 🛠️ Tool Output ─────────────────────────────╮
+│ {                                                                       │
+│   "results": [                                                          │
+│     {                                                                   │
+│       "state": "active",                                                │
+│       "created_at": "2025-04-11T15:52:56.251101Z",                      │
+│       "updated_at": "2025-04-11T15:53:56.300962Z",                      │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c",          │
+│       "my_did": "XidQ9VsTN9cLt8PPAEe93D",                               │
+│       "their_did": "CVyEsN1Zas3Wy8bN5bJ1YJ",                            │
+│       "their_label": "Bob",                                             │
+│       "their_role": "invitee",                                          │
+│       "connection_protocol": "didexchange/1.0",                         │
+│       "rfc23_state": "completed",                                       │
+│       "invitation_key": "HSQo36oRZnfTVV6tUYYpQfNiZcRc52A2wXXYj6xemfxt", │
+│       "invitation_msg_id": "79029583-eb94-4a09-b999-eff6a3c38512",      │
+│       "request_id": "9532d22d-6116-4937-a72f-19f3ab0b2bcd",             │
+│       "accept": "auto",                                                 │
+│       "invitation_mode": "once",                                        │
+│       "alias": "Bob"                                                    │
+│     }                                                                   │
+│   ]                                                                     │
+│ }                                                                       │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────╮
+│ Error: ToolException("Error executing tool send_message: 1 validation error for                        │
+│ send_messageArguments\nconn_id\n  Field required \n    For further information visit                   │
+│ https://errors.pydantic.dev/2.11/v/missing")                                                           │
+│  Please fix your mistakes.                                                                             │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ 🛠️ Tool Output─╮
+│ {}              │
+╰─────────────────╯
+╭─────────────────────────────────────── AI Message 2 ────────────────────────────────────────╮
+│ Hello! I tried to send a message to Bob, but I couldn't. I'm sorry. I will try again later. │
+╰─────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_receive_message ──────── 17:05:13 - Query: Please check for messages. Let me know who it was and what they said! ─────────
+Human Input: Please check for messages. Let me know who it was and what they said!
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Please check for messages. Let me know who it was and what they said!",
+    "",
+    "{\n  \"results\": [\n    {\n      \"state\": \"received\",\n      \"created_at\": \"2025-04-11T16:05:11.028265Z\",\n      \"updated_at\": \"2025-04-11T16:05:11.028265Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"message_id\": \"f882247c-021d-4482-a531-3dce3f2fe2c9\",\n      \"sent_time\": \"2025-04-11T16:05:10.872430Z\",\n      \"content\": \"Bob received your message\"\n    },\n    {\n      \"state\": \"sent\",\n      \"created_at\": \"2025-04-11T16:05:10.690787Z\",\n      \"updated_at\": \"2025-04-11T16:05:10.690787Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"message_id\": \"44047bf2-1b72-43ae-b6af-05769be3241e\",\n      \"sent_time\": \"2025-04-11T16:05:10.689176Z\",\n      \"content\": \"Hi Bob\"\n    },\n    {\n      \"state\": \"received\",\n      \"created_at\": \"2025-04-11T15:56:06.196150Z\",\n      \"updated_at\": \"2025-04-11T15:56:06.196150Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"message_id\": \"47e3e636-7d6c-45f3-a3f3-420fb9ffe4f5\",\n      \"sent_time\": \"2025-04-11T15:56:06.037293Z\",\n      \"content\": \"Hi Alice, how are you?\"\n    },\n    {\n      \"state\": \"received\",\n      \"created_at\": \"2025-04-11T15:55:24.105880Z\",\n      \"updated_at\": \"2025-04-11T15:55:24.105880Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"message_id\": \"e79f7ddd-7ae8-47ad-b085-2ad10d6c8563\",\n      \"sent_time\": \"2025-04-11T15:55:23.950968Z\",\n      \"content\": \"Bob received your message\"\n    },\n    {\n      \"state\": \"sent\",\n      \"created_at\": \"2025-04-11T15:55:23.771552Z\",\n      \"updated_at\": \"2025-04-11T15:55:23.771552Z\",\n      \"connection_id\": \"03b36936-33b3-4b56-9457-fb79fc33156c\",\n      \"message_id\": \"299c1345-5026-4301-8e85-a7e867d31447\",\n      \"sent_time\": \"2025-04-11T15:55:23.768679Z\",\n      \"content\": \"Hi Bob\"\n    }\n  ]\n}",
+    "Hello! I checked your messages. You have messages from Bob.\n\nBob said \"Hi Alice, how are you?\" and \"Bob received your message\"\n\nYou sent \"Hi Bob\" to Bob."
+  ]
+}
+
+AI Output:
+╭──────────────────────── 🛠️ Tool Output ─────────────────────────╮
+│ {                                                              │
+│   "results": [                                                 │
+│     {                                                          │
+│       "state": "received",                                     │
+│       "created_at": "2025-04-11T16:05:11.028265Z",             │
+│       "updated_at": "2025-04-11T16:05:11.028265Z",             │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c", │
+│       "message_id": "f882247c-021d-4482-a531-3dce3f2fe2c9",    │
+│       "sent_time": "2025-04-11T16:05:10.872430Z",              │
+│       "content": "Bob received your message"                   │
+│     },                                                         │
+│     {                                                          │
+│       "state": "sent",                                         │
+│       "created_at": "2025-04-11T16:05:10.690787Z",             │
+│       "updated_at": "2025-04-11T16:05:10.690787Z",             │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c", │
+│       "message_id": "44047bf2-1b72-43ae-b6af-05769be3241e",    │
+│       "sent_time": "2025-04-11T16:05:10.689176Z",              │
+│       "content": "Hi Bob"                                      │
+│     },                                                         │
+│     {                                                          │
+│       "state": "received",                                     │
+│       "created_at": "2025-04-11T15:56:06.196150Z",             │
+│       "updated_at": "2025-04-11T15:56:06.196150Z",             │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c", │
+│       "message_id": "47e3e636-7d6c-45f3-a3f3-420fb9ffe4f5",    │
+│       "sent_time": "2025-04-11T15:56:06.037293Z",              │
+│       "content": "Hi Alice, how are you?"                      │
+│     },                                                         │
+│     {                                                          │
+│       "state": "received",                                     │
+│       "created_at": "2025-04-11T15:55:24.105880Z",             │
+│       "updated_at": "2025-04-11T15:55:24.105880Z",             │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c", │
+│       "message_id": "e79f7ddd-7ae8-47ad-b085-2ad10d6c8563",    │
+│       "sent_time": "2025-04-11T15:55:23.950968Z",              │
+│       "content": "Bob received your message"                   │
+│     },                                                         │
+│     {                                                          │
+│       "state": "sent",                                         │
+│       "created_at": "2025-04-11T15:55:23.771552Z",             │
+│       "updated_at": "2025-04-11T15:55:23.771552Z",             │
+│       "connection_id": "03b36936-33b3-4b56-9457-fb79fc33156c", │
+│       "message_id": "299c1345-5026-4301-8e85-a7e867d31447",    │
+│       "sent_time": "2025-04-11T15:55:23.768679Z",              │
+│       "content": "Hi Bob"                                      │
+│     }                                                          │
+│   ]                                                            │
+│ }                                                              │
+╰────────────────────────────────────────────────────────────────╯
+╭────────────────────────── AI Message 1 ───────────────────────────╮
+│ Hello! I checked your messages. You have messages from Bob.       │
+│                                                                   │
+│ Bob said "Hi Alice, how are you?" and "Bob received your message" │
+│                                                                   │
+│ You sent "Hi Bob" to Bob.                                         │
+╰───────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_integration.py::test_credential_offer SKIPPED (async def fun...)
+
+=============================== warnings summary ===============================
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68: DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing.ForwardRef._evaluate' is deprecated, as it leads to incorrect behaviour when calling typing.ForwardRef._evaluate on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.
+    return cast(Any, type_)._evaluate(globalns, localns, recursive_guard=set())
+
+mcp_llm_integration.py: 45 warnings
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/ollama/_types.py:81: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+    if key in self.model_fields:
+
+mcp_llm_integration.py: 45 warnings
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/ollama/_types.py:82: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+    return self.model_fields[key].default is not None
+
+mcp_llm_integration.py::test_credential_offer
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/_pytest/python.py:148: PytestUnhandledCoroutineWarning: async def functions are not natively supported and have been skipped.
+  You need to install a suitable plugin for your async framework, for example:
+    - anyio
+    - pytest-asyncio
+    - pytest-tornasync
+    - pytest-trio
+    - pytest-twisted
+    warnings.warn(PytestUnhandledCoroutineWarning(msg.format(nodeid)))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============ 9 passed, 1 skipped, 98 warnings in 259.90s (0:04:19) =============

@@ -1,0 +1,292 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.2, pytest-8.3.5, pluggy-1.5.0 -- /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/adamhall/Documents/GitHub/nanda-ssi-demo/test
+configfile: pytest.ini
+plugins: langsmith-0.3.24, anyio-4.9.0, asyncio-0.26.0
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 4 items
+
+mcp_llm_client.py::test_get_tenant_status ───────────────────────────────────────────────────────── 09:44:34 - Query: Could you please get me a summary of details about my tenant?   ─────────────────────────────────────────────────────────
+Human Input: Could you please get me a summary of details about my tenant? 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you please get me a summary of details about my tenant? \n",
+    "",
+    "{\n  \"state\": \"active\",\n  \"created_at\": \"2025-04-08T11:46:27.234708Z\",\n  \"updated_at\": \"2025-04-08T11:47:32.098701Z\",\n  \"tenant_id\": \"8f719188-a40b-43f2-bb96-56e28ba1dc53\",\n  \"tenant_name\": \"Alice\",\n  \"contact_email\": \"a@a.com\",\n  \"wallet_id\": \"c0721c42-4f6a-49e0-ab21-94569f89d009\",\n  \"connect_to_endorser\": [\n    {\n      \"endorser_alias\": \"bcovrin-test-endorser\",\n      \"ledger_id\": \"bcovrin-test\"\n    },\n    {\n      \"endorser_alias\": \"bcovrin-test-endorser-1\",\n      \"ledger_id\": \"bcovrin-test-1\"\n    }\n  ],\n  \"created_public_did\": [\n    \"bcovrin-test\",\n    \"bcovrin-test-1\"\n  ],\n  \"auto_issuer\": true,\n  \"enable_ledger_switch\": false,\n  \"curr_ledger_id\": \"bcovrin-test\"\n}",
+    "<think>\nOkay, the user asked for a summary of their tenant details. I used the get_tenant_details function, which didn't need any arguments. The response came back with a bunch of info.\n\nFirst, I need to explain this in simple terms. Let's see, the tenant is active, which is good. The tenant name is Alice, and her email is a@a.com. The wallet ID is a long code, but maybe they don't need that. The important parts are the state, name, email, and maybe the ledgers they're connected to.\n\nThey have two endorsers listed, which help with transactions on different ledgers. Also, they have public DIDs on those ledgers. The auto_issuer being true means they can issue credentials automatically. The current ledger is bcovrin-test.\n\nI should list the key points clearly, like a bullet list but in plain text. Make sure to mention the active status, main details, endorsers, public DIDs, and the current ledger. Keep it friendly and easy to understand, like explaining to a kid. Avoid technical jargon as much as possible.\n</think>\n\nHere's your tenant summary in simple terms:\n\n🌱 **Your Tenant is Active!**  \nName: Alice  \nEmail: a@a.com  \nStarted: April 8, 2025  \n\n🔍 **Important Stuff:**  \n- Connected to 2 ledgers (like digital record-keepers):  \n  ✅ bcovrin-test  \n  ✅ bcovrin-test-1  \n- Has special \"public IDs\" on both ledgers  \n- Can automatically issue credentials (like digital badges)  \n- Currently using bcovrin-test ledger  \n\nLet me know if you'd like help with anything specific! 😊"
+  ]
+}
+
+AI Output:
+╭──────────────────── 🛠️ Tool Output ─────────────────────╮
+│ {                                                      │
+│   "state": "active",                                   │
+│   "created_at": "2025-04-08T11:46:27.234708Z",         │
+│   "updated_at": "2025-04-08T11:47:32.098701Z",         │
+│   "tenant_id": "8f719188-a40b-43f2-bb96-56e28ba1dc53", │
+│   "tenant_name": "Alice",                              │
+│   "contact_email": "a@a.com",                          │
+│   "wallet_id": "c0721c42-4f6a-49e0-ab21-94569f89d009", │
+│   "connect_to_endorser": [                             │
+│     {                                                  │
+│       "endorser_alias": "bcovrin-test-endorser",       │
+│       "ledger_id": "bcovrin-test"                      │
+│     },                                                 │
+│     {                                                  │
+│       "endorser_alias": "bcovrin-test-endorser-1",     │
+│       "ledger_id": "bcovrin-test-1"                    │
+│     }                                                  │
+│   ],                                                   │
+│   "created_public_did": [                              │
+│     "bcovrin-test",                                    │
+│     "bcovrin-test-1"                                   │
+│   ],                                                   │
+│   "auto_issuer": true,                                 │
+│   "enable_ledger_switch": false,                       │
+│   "curr_ledger_id": "bcovrin-test"                     │
+│ }                                                      │
+╰────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────── 🧠 Think ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Okay, the user asked for a summary of their tenant details. I used the get_tenant_details function, which didn't need any arguments. The response came back with a bunch of info.                 │
+│                                                                                                                                                                                                   │
+│ First, I need to explain this in simple terms. Let's see, the tenant is active, which is good. The tenant name is Alice, and her email is a@a.com. The wallet ID is a long code, but maybe they   │
+│ don't need that. The important parts are the state, name, email, and maybe the ledgers they're connected to.                                                                                      │
+│                                                                                                                                                                                                   │
+│ They have two endorsers listed, which help with transactions on different ledgers. Also, they have public DIDs on those ledgers. The auto_issuer being true means they can issue credentials      │
+│ automatically. The current ledger is bcovrin-test.                                                                                                                                                │
+│                                                                                                                                                                                                   │
+│ I should list the key points clearly, like a bullet list but in plain text. Make sure to mention the active status, main details, endorsers, public DIDs, and the current ledger. Keep it         │
+│ friendly and easy to understand, like explaining to a kid. Avoid technical jargon as much as possible.                                                                                            │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────── AI Message 1 ─────────────────────────╮
+│ Here's your tenant summary in simple terms:                   │
+│                                                               │
+│ 🌱 **Your Tenant is Active!**                                 │
+│ Name: Alice                                                   │
+│ Email: a@a.com                                                │
+│ Started: April 8, 2025                                        │
+│                                                               │
+│ 🔍 **Important Stuff:**                                       │
+│ - Connected to 2 ledgers (like digital record-keepers):       │
+│   ✅ bcovrin-test                                             │
+│   ✅ bcovrin-test-1                                           │
+│ - Has special "public IDs" on both ledgers                    │
+│ - Can automatically issue credentials (like digital badges)   │
+│ - Currently using bcovrin-test ledger                         │
+│                                                               │
+│ Let me know if you'd like help with anything specific! 😊     │
+╰───────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_client.py::test_list_connections ────────────────────────────────────────────────────────────────── 09:45:13 - Query: Could you please list my active connections?  ──────────────────────────────────────────────────────────────────
+Human Input: Could you please list my active connections?
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you please list my active connections?\n",
+    "",
+    "{\n  \"results\": [\n    {\n      \"state\": \"active\",\n      \"created_at\": \"2025-04-08T11:47:23.640911Z\",\n      \"updated_at\": \"2025-04-08T11:47:24.135992Z\",\n      \"connection_id\": \"4cc43eb9-c6cb-4dc8-a208-e0be1bd2028f\",\n      \"my_did\": \"G3vaFbq9z96ZkkjZAUSqEB\",\n      \"their_did\": \"9E5RmQ7HuyfUdiwc5DR8TN\",\n      \"their_role\": \"inviter\",\n      \"connection_protocol\": \"didexchange/1.0\",\n      \"rfc23_state\": \"completed\",\n      \"request_id\": \"00376092-3dd4-42bb-b2cf-0a336142a476\",\n      \"accept\": \"manual\",\n      \"invitation_mode\": \"once\",\n      \"alias\": \"bcovrin-test-endorser\",\n      \"their_public_did\": \"SVfHGCEEvEFmpBPcxgNqRR\"\n    },\n    {\n      \"state\": \"active\",\n      \"created_at\": \"2025-04-08T19:18:49.785406Z\",\n      \"updated_at\": \"2025-04-08T19:19:29.740554Z\",\n      \"connection_id\": \"0daf0057-16ee-4ec5-b9ba-197ea61f7025\",\n      \"my_did\": \"6q27N8Qw1sSzYBsVvjSXX4\",\n      \"their_did\": \"Kmt6kHUS5PJuGpMeJ3ATNb\",\n      \"their_label\": \"Bob\",\n      \"their_role\": \"invitee\",\n      \"connection_protocol\": \"didexchange/1.0\",\n      \"rfc23_state\": \"completed\",\n      \"invitation_key\": \"9XXtgFktrboBZgMwmeLobQnJsnv9zzBzRTRdgpmeZFGg\",\n      \"invitation_msg_id\": \"2628c32d-9b14-451b-9863-9039c57f17de\",\n      \"request_id\": \"c5e1fedf-ea8f-4430-9256-80b7131042ea\",\n      \"accept\": \"auto\",\n      \"invitation_mode\": \"once\",\n      \"alias\": \"Unit Test Invitation\"\n    }\n  ]\n}",
+    "<think>\nOkay, let me see what the user is asking here. Wait, actually, the user provided some results from a previous function call. The output shows two connections. The first one has an alias \"bcovrin-test-endorser\" and the second is \"Unit Test Invitation\". The user hasn't asked a question yet, but maybe they want me to analyze these results or perform another action based on this data.\n\nHmm, since the user included the results of a tool call, perhaps they want me to interpret this data. Let me check the functions available. The tools include things like creating credentials, definitions, and looking up schemas. But the current output is from a list of connections. Maybe the user is trying to find an endorser connection or check the status of these connections?\n\nLooking at the first connection, it's marked as active and has a their_role of \"inviter\", and their_public_did is present. That might be the endorser connection. The second one is with Bob, an invitee. Since both are active, maybe the user wants to know which one is the correct endorser or perform an action using one of these connections.\n\nAlternatively, maybe the user's next step is to use one of these connections for another function, like creating a credential. But without a specific question, I need to ask for clarification. Wait, the user might have intended to ask something based on these results but forgot to include the actual question. Since the assistant's role is to help, I should prompt them for more details on what they need. \n\nAlternatively, maybe the user is showing the output of a list_connections command and wants to know how to proceed. For example, they might want to select a specific connection or use its details for another function. Since I can't proceed without more info, the best approach is to ask the user to clarify their request so I can assist effectively.\n</think>\n\nIt looks like you've provided the results of a connection list query. The output shows two active connections:\n\n1. **Bcovrin Test Endorser Connection**  \n   - Alias: `bcovrin-test-endorser`  \n   - Their Public DID: `SVfHGCEEvEFmpBPcxgNqRR`  \n   - Role: Inviter (likely an endorser node)  \n\n2. **Unit Test Invitation Connection**  \n   - Alias: `Unit Test Invitation`  \n   - Their Label: `Bob`  \n   - Role: Invitee  \n\n### Next Steps (What Can I Help With?)\nTo proceed, please clarify your goal. For example:\n- Do you want to **create a credential definition** using one of these connections?\n- Are you trying to **send a credential offer** to \"Bob\"?\n- Do you need to **verify the endorser connection** details?\n- Or another action?\n\nLet me know your specific request!"
+  ]
+}
+
+AI Output:
+╭───────────────────────────── 🛠️ Tool Output ─────────────────────────────╮
+│ {                                                                       │
+│   "results": [                                                          │
+│     {                                                                   │
+│       "state": "active",                                                │
+│       "created_at": "2025-04-08T11:47:23.640911Z",                      │
+│       "updated_at": "2025-04-08T11:47:24.135992Z",                      │
+│       "connection_id": "4cc43eb9-c6cb-4dc8-a208-e0be1bd2028f",          │
+│       "my_did": "G3vaFbq9z96ZkkjZAUSqEB",                               │
+│       "their_did": "9E5RmQ7HuyfUdiwc5DR8TN",                            │
+│       "their_role": "inviter",                                          │
+│       "connection_protocol": "didexchange/1.0",                         │
+│       "rfc23_state": "completed",                                       │
+│       "request_id": "00376092-3dd4-42bb-b2cf-0a336142a476",             │
+│       "accept": "manual",                                               │
+│       "invitation_mode": "once",                                        │
+│       "alias": "bcovrin-test-endorser",                                 │
+│       "their_public_did": "SVfHGCEEvEFmpBPcxgNqRR"                      │
+│     },                                                                  │
+│     {                                                                   │
+│       "state": "active",                                                │
+│       "created_at": "2025-04-08T19:18:49.785406Z",                      │
+│       "updated_at": "2025-04-08T19:19:29.740554Z",                      │
+│       "connection_id": "0daf0057-16ee-4ec5-b9ba-197ea61f7025",          │
+│       "my_did": "6q27N8Qw1sSzYBsVvjSXX4",                               │
+│       "their_did": "Kmt6kHUS5PJuGpMeJ3ATNb",                            │
+│       "their_label": "Bob",                                             │
+│       "their_role": "invitee",                                          │
+│       "connection_protocol": "didexchange/1.0",                         │
+│       "rfc23_state": "completed",                                       │
+│       "invitation_key": "9XXtgFktrboBZgMwmeLobQnJsnv9zzBzRTRdgpmeZFGg", │
+│       "invitation_msg_id": "2628c32d-9b14-451b-9863-9039c57f17de",      │
+│       "request_id": "c5e1fedf-ea8f-4430-9256-80b7131042ea",             │
+│       "accept": "auto",                                                 │
+│       "invitation_mode": "once",                                        │
+│       "alias": "Unit Test Invitation"                                   │
+│     }                                                                   │
+│   ]                                                                     │
+│ }                                                                       │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────── 🧠 Think ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Okay, let me see what the user is asking here. Wait, actually, the user provided some results from a previous function call. The output shows two connections. The first one has an alias         │
+│ "bcovrin-test-endorser" and the second is "Unit Test Invitation". The user hasn't asked a question yet, but maybe they want me to analyze these results or perform another action based on this   │
+│ data.                                                                                                                                                                                             │
+│                                                                                                                                                                                                   │
+│ Hmm, since the user included the results of a tool call, perhaps they want me to interpret this data. Let me check the functions available. The tools include things like creating credentials,   │
+│ definitions, and looking up schemas. But the current output is from a list of connections. Maybe the user is trying to find an endorser connection or check the status of these connections?      │
+│                                                                                                                                                                                                   │
+│ Looking at the first connection, it's marked as active and has a their_role of "inviter", and their_public_did is present. That might be the endorser connection. The second one is with Bob, an  │
+│ invitee. Since both are active, maybe the user wants to know which one is the correct endorser or perform an action using one of these connections.                                               │
+│                                                                                                                                                                                                   │
+│ Alternatively, maybe the user's next step is to use one of these connections for another function, like creating a credential. But without a specific question, I need to ask for clarification.  │
+│ Wait, the user might have intended to ask something based on these results but forgot to include the actual question. Since the assistant's role is to help, I should prompt them for more        │
+│ details on what they need.                                                                                                                                                                        │
+│                                                                                                                                                                                                   │
+│ Alternatively, maybe the user is showing the output of a list_connections command and wants to know how to proceed. For example, they might want to select a specific connection or use its       │
+│ details for another function. Since I can't proceed without more info, the best approach is to ask the user to clarify their request so I can assist effectively.                                 │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────────── AI Message 1 ─────────────────────────────────────────────────╮
+│ It looks like you've provided the results of a connection list query. The output shows two active connections: │
+│                                                                                                                │
+│ 1. **Bcovrin Test Endorser Connection**                                                                        │
+│    - Alias: `bcovrin-test-endorser`                                                                            │
+│    - Their Public DID: `SVfHGCEEvEFmpBPcxgNqRR`                                                                │
+│    - Role: Inviter (likely an endorser node)                                                                   │
+│                                                                                                                │
+│ 2. **Unit Test Invitation Connection**                                                                         │
+│    - Alias: `Unit Test Invitation`                                                                             │
+│    - Their Label: `Bob`                                                                                        │
+│    - Role: Invitee                                                                                             │
+│                                                                                                                │
+│ ### Next Steps (What Can I Help With?)                                                                         │
+│ To proceed, please clarify your goal. For example:                                                             │
+│ - Do you want to **create a credential definition** using one of these connections?                            │
+│ - Are you trying to **send a credential offer** to "Bob"?                                                      │
+│ - Do you need to **verify the endorser connection** details?                                                   │
+│ - Or another action?                                                                                           │
+│                                                                                                                │
+│ Let me know your specific request!                                                                             │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_client.py::test_oob_invitation ──────────────────────────────────────────────────── 09:46:41 - Query: Could you create an out of band SSI agent invitation for my friend Bob?  ─────────────────────────────────────────────────────
+Human Input: Could you create an out of band SSI agent invitation for my friend Bob?
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "Could you create an out of band SSI agent invitation for my friend Bob?\n",
+    "",
+    "https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS4xL2ludml0YXRpb24iLCJAaWQiOiI4ZDVmOWM3Ni1iOTBhLTQwOGItYjk2OC0xYWY4ZTdiZTQ4ODMiLCJsYWJlbCI6IkJvYidzIEludml0YXRpb24iLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZNa2luaE1LRzZmUGd6OFVHMkdjS1BoRVoxcUdGdWlRQVdyOHFVRThwZ3J4dU1EI3o2TWtpbmhNS0c2ZlBnejhVRzJHY0tQaEVaMXFHRnVpUUFXcjhxVUU4cGdyeHVNRCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzkyY2UtODAtNDAtMjItNDgubmdyb2stZnJlZS5hcHAifV19",
+    "<think>\nOkay, the user asked for an out-of-band invitation for their friend Bob. I used the create_out_of_band_invitation function. I set the alias to \"Bob\" and the my_label to \"Bob's Invitation\" so it's clear who it's for. The response came back with a URL. Now I need to explain this in simple terms.\n\nFirst, I'll let them know the invitation was created. The link is important, so I should mention clicking it starts the connection. Maybe Bob needs an app to use it. Keep it friendly and check if they need more help. Make sure not to use any technical jargon since they might not be familiar with SSI terms. Just keep it straightforward and helpful.\n</think>\n\nHere's the Out-of-Band invitation for Bob:\n\n🔗 **Invitation Link:**  \n[https://92ce-80-40-22-48.ngrok-free.app?oob...](https://92ce-80-40-22-48.ngrok-free.app?oob...)\n\nBob can use this link to connect with your SSI agent. When he clicks it, his self-sovereign identity app (like Microsoft Authenticator, uPort, or a wallet) will automatically start the connection process. \n\nLet me know if you'd like to test it or need help sharing this securely! 😊"
+  ]
+}
+
+AI Output:
+╭────────────────────────────────────────────────────────────────────────────────────────── AI Message 1 ───────────────────────────────────────────────────────────────────────────────────────────╮
+│ https://92ce-80-40-22-48.ngrok-free.app?oob=eyJAdHlwZSI6Imh0dHBzOi8vZGlkY29tbS5vcmcvb3V0LW9mLWJhbmQvMS4xL2ludml0YXRpb24iLCJAaWQiOiI4ZDVmOWM3Ni1iOTBhLTQwOGItYjk2OC0xYWY4ZTdiZTQ4ODMiLCJsYWJlbCI6I │
+│ kJvYidzIEludml0YXRpb24iLCJoYW5kc2hha2VfcHJvdG9jb2xzIjpbImh0dHBzOi8vZGlkY29tbS5vcmcvZGlkZXhjaGFuZ2UvMS4wIl0sInNlcnZpY2VzIjpbeyJpZCI6IiNpbmxpbmUiLCJ0eXBlIjoiZGlkLWNvbW11bmljYXRpb24iLCJyZWNpcGllbn │
+│ RLZXlzIjpbImRpZDprZXk6ejZNa2luaE1LRzZmUGd6OFVHMkdjS1BoRVoxcUdGdWlRQVdyOHFVRThwZ3J4dU1EI3o2TWtpbmhNS0c2ZlBnejhVRzJHY0tQaEVaMXFHRnVpUUFXcjhxVUU4cGdyeHVNRCJdLCJzZXJ2aWNlRW5kcG9pbnQiOiJodHRwczovLzk │
+│ yY2UtODAtNDAtMjItNDgubmdyb2stZnJlZS5hcHAifV19                                                                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────── 🧠 Think ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Okay, the user asked for an out-of-band invitation for their friend Bob. I used the create_out_of_band_invitation function. I set the alias to "Bob" and the my_label to "Bob's Invitation" so    │
+│ it's clear who it's for. The response came back with a URL. Now I need to explain this in simple terms.                                                                                           │
+│                                                                                                                                                                                                   │
+│ First, I'll let them know the invitation was created. The link is important, so I should mention clicking it starts the connection. Maybe Bob needs an app to use it. Keep it friendly and check  │
+│ if they need more help. Make sure not to use any technical jargon since they might not be familiar with SSI terms. Just keep it straightforward and helpful.                                      │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────────────────────── AI Message 2 ───────────────────────────────────────────────────────────────────────────────────────────╮
+│ Here's the Out-of-Band invitation for Bob:                                                                                                                                                        │
+│                                                                                                                                                                                                   │
+│ 🔗 **Invitation Link:**                                                                                                                                                                           │
+│ (https://92ce-80-40-22-48.ngrok-free.app?oob...)                                                                                                                                                  │
+│                                                                                                                                                                                                   │
+│ Bob can use this link to connect with your SSI agent. When he clicks it, his self-sovereign identity app (like Microsoft Authenticator, uPort, or a wallet) will automatically start the          │
+│ connection process.                                                                                                                                                                               │
+│                                                                                                                                                                                                   │
+│ Let me know if you'd like to test it or need help sharing this securely! 😊                                                                                                                       │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+PASSED
+mcp_llm_client.py::test_scheme_creation ─ 09:47:44 - Query: I'd like to create a new NANDA scheme with a single binary field which will allow people to verify that they were at the hackathon. The scheme version is '1.0' and the exact … ─
+Human Input: I'd like to create a new NANDA scheme with a single binary field which will allow people to verify that they were at the hackathon. The scheme version is '1.0' and the exact attribute 
+name that I want is 'hackathon_attendance'. If the scheme already exists then that's fine, mission accomplished. 
+
+
+
+Raw Response:
+{
+  "messages": [
+    "You are a helpful customer support assistant, always greet the user politely. Explain everything like you are speaking to a 3 year old. You may have to perform multi-stage tasks to complete the user's requests.",
+    "I'd like to create a new NANDA scheme with a single binary field which will allow people to verify that they were at the hackathon. The scheme version is '1.0' and the exact attribute name that I want is 'hackathon_attendance'. If the scheme already exists then that's fine, mission accomplished. \n",
+    "",
+    "{\n  \"schema_ids\": [\n    \"GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0\"\n  ]\n}",
+    "<think>\nOkay, the user wants to create a new schema called NANDA with the version 1.0 and an attribute 'hackathon_attendance'. They mentioned if it already exists, that's okay.\n\nFirst, I checked if the schema exists using get_created_schemas with the name and version. The response showed there's already a schema with ID GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0. \n\nSo, the schema is already there. The user's mission is accomplished. I need to inform them that it exists and provide the schema ID. No need to create a new one. Make sure to explain it simply, like the user is a kid. Maybe use a friendly tone and avoid technical jargon.\n</think>\n\nGreat news! The NANDA schema you wanted already exists! 🎉\n\nHere's what's happening:\n1. We checked for your \"NANDA\" schema (version 1.0)\n2. Found it! 📜 It's stored on the ledger with this special ID:\n   `GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0`\n3. This means people can already use it to verify hackathon attendance!\n\nNo action needed - your schema is all set! 🚀"
+  ]
+}
+
+AI Output:
+╭───────────── 🛠️ Tool Output ──────────────╮
+│ {                                        │
+│   "schema_ids": [                        │
+│     "GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0" │
+│   ]                                      │
+│ }                                        │
+╰──────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────── 🧠 Think ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Okay, the user wants to create a new schema called NANDA with the version 1.0 and an attribute 'hackathon_attendance'. They mentioned if it already exists, that's okay.                          │
+│                                                                                                                                                                                                   │
+│ First, I checked if the schema exists using get_created_schemas with the name and version. The response showed there's already a schema with ID GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0.               │
+│                                                                                                                                                                                                   │
+│ So, the schema is already there. The user's mission is accomplished. I need to inform them that it exists and provide the schema ID. No need to create a new one. Make sure to explain it simply, │
+│ like the user is a kid. Maybe use a friendly tone and avoid technical jargon.                                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────── AI Message 1 ──────────────────────────────╮
+│ Great news! The NANDA schema you wanted already exists! 🎉              │
+│                                                                         │
+│ Here's what's happening:                                                │
+│ 1. We checked for your "NANDA" schema (version 1.0)                     │
+│ 2. Found it! 📜 It's stored on the ledger with this special ID:         │
+│    `GeLsnrSj8Xofy6B9T5MMTi:2:NANDA:1.0`                                 │
+│ 3. This means people can already use it to verify hackathon attendance! │
+│                                                                         │
+│ No action needed - your schema is all set! 🚀                           │
+╰─────────────────────────────────────────────────────────────────────────╯
+PASSED
+
+=============================== warnings summary ===============================
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+../venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/pydantic/v1/typing.py:68: DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing.ForwardRef._evaluate' is deprecated, as it leads to incorrect behaviour when calling typing.ForwardRef._evaluate on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.
+    return cast(Any, type_)._evaluate(globalns, localns, recursive_guard=set())
+
+mcp_llm_client.py: 16 warnings
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/ollama/_types.py:81: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+    if key in self.model_fields:
+
+mcp_llm_client.py: 16 warnings
+  /Users/adamhall/Documents/GitHub/nanda-ssi-demo/venv/lib/python3.13/site-packages/ollama/_types.py:82: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+    return self.model_fields[key].default is not None
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 4 passed, 39 warnings in 294.15s (0:04:54) ==================
