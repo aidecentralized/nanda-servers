@@ -14,7 +14,7 @@ This repository also includes instructions on how to integrate the MCP server wi
 ## Installation
 
 ```bash
-git clone https://github.com/anna8murphy/zipcode-mcp.git
+git clone https://github.com/anna8murphy/mcp-compare-zipcodes.git
 cd zipcode-mcp
 ```
 
