@@ -1,0 +1,16 @@
+[project]
+name = "arxiv-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "arxiv>=2.2.0",
+    "flask>=3.1.0",
+    "mcp[cli]>=1.6.0",
+    "requests>=2.32.3",
+    "sentencepiece>=0.2.0",
+    "torch>=2.6.0",
+    "transformers>=4.51.1",
+    "uvicorn>=0.34.0",
+]
