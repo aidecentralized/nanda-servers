@@ -13,6 +13,7 @@ import uvicorn
 from mcp.server.fastmcp import Context, FastMCP
 from mcp.server.sse import SseServerTransport
 from starlette.requests import Request
+from starlette.responses import JSONResponse, Response
 from starlette.routing import Mount, Route
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
@@ -508,6 +509,15 @@ def arxiv_process_directory(directory_path: str = "~/Downloads") -> str:
     """
 
 
+# Root endpoint handler
+async def root_handler(request: Request) -> Response:
+    """Handle requests to the root endpoint"""
+    return JSONResponse(
+        content={"status": "ok", "message": "arXiv Helper API is running"}, 
+        status_code=200
+    )
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="arXiv Helper MCP Server")
     parser.add_argument(
@@ -548,9 +558,10 @@ def create_starlette_app(mcp_server):
                 mcp_server.create_initialization_options(),
             )
 
-    # Create base app first
+    # Create base app first with root endpoint
     app = Starlette(
         routes=[
+            Route("/", endpoint=root_handler, methods=["GET"]),
             Route("/sse", endpoint=handle_sse),
             Mount("/messages/", app=sse.handle_post_message),
         ]
