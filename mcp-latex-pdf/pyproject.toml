@@ -1,0 +1,22 @@
+[project]
+name = "mcp-latex-pdf-sse"
+version = "0.3.3"
+description = "MCP to interface with pandoc to convert files to differnt formats. Eg: Converting markdown to pdf."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+ "mcp[cli]>=1.6.0",
+ "pandoc>=2.4",
+ "pypandoc>=1.14",
+ "docker>=7.1.0",
+ "starlette>=0.41.3",
+ "asyncio>=3.4.3",
+ "fastapi>=0.115.12",
+ "sse-starlette>=2.2.1",
+ "uvicorn>=0.34.0",
+ "tenacity>=9.1.2"
+]
+[[project.authors]]
+name = "j16z"
+email = ""
+
