@@ -1,4 +1,4 @@
-# mcp-latex-pdf: A Document Conversion MCP Server
+# mcp-latex-pdf: A Document Conversion MCP Server from LaTeX to PDF
 
 This project provides a Model Context Protocol (MCP) server built with Python using `FastMCP` based on [the SSE transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) mechanism. It allows MCP clients (like AI assistants or other applications) to convert a LaTeX document to PDFs (with support for more document formats upcoming in the future).
 
