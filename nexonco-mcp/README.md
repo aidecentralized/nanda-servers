@@ -71,3 +71,7 @@ This project is licensed under the MIT License - see the <a href="LICENSE">LICEN
 ## Disclaimer
 
 ⚠️ This tool is intended exclusively for research purposes. It is not a substitute for professional medical advice, diagnosis, or treatment.
+
+## Contributors 
+- Obada Qasem (@obadaqasem)
+- Kutsal Ozkurt (@Goodsea)
