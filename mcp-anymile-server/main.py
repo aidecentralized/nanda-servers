@@ -25,7 +25,7 @@ async def make_get_request(url: str) -> dict[str, Any] | None:
             return None
 
 
-async def make_post_request(url: str, body: any) -> dict[str, any] | None:
+async def make_post_request(url: str, body: Any) -> dict[str, Any] | None:
     """Make a POST request to the AnyMile API."""
 
     async with httpx.AsyncClient() as client:
@@ -167,7 +167,7 @@ async def request_shipment(
     origin_terminal_id: str,
     destination_terminal_id: str,
     recipient_id: str,
-    shipment_package_request: any,
+    shipment_package_request: Any,
 ):
     """Requests a shipment for a package from AnyMile.
 
