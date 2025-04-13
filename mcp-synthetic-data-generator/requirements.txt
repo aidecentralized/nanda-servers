@@ -1,0 +1,24 @@
+# Core framework
+starlette==0.41.3
+
+# Synthetic data generation
+sdv==1.8.0
+ctgan==0.8
+scikit-learn==1.4.0
+faker==23.2.1
+# Data handling
+pandas==2.2.2
+numpy==1.26.4
+
+# Plotting & Visualization
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# Drift detection
+scipy==1.13.0
+
+# TensorFlow for TimeGAN
+tensorflow==2.15.0
+
+# Typing helpers (if you use static typing)
+typing_extensions==4.13.0
