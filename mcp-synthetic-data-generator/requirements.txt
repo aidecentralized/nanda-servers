@@ -1,5 +1,6 @@
 # Core framework
 starlette==0.41.3
+mcp
 
 # Synthetic data generation
 sdv==1.8.0
