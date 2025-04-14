@@ -128,7 +128,7 @@ app.get("/api/test", (_: Request, res: Response) => {
 
 // MCP verification endpoint
 app.get("/mcp-verification.txt", (_: Request, res: Response) => {
-  res.type("text").send("qyO-WdhO07dpEEDumoCo4BthvwRKPP1DA-9Ohyg3xD8");
+  res.type("text").send("9vwu1HgmCPv00oAe74qSF6AabELxSmzBRkwqza3myJg");
 });
 
 // SSE endpoint for MCP communication
