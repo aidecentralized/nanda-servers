@@ -47,7 +47,7 @@ async def make_post_request(url: str, body: Any) -> dict[str, Any] | None:
 
 @mcp.tool()
 async def get_routes() -> str:
-    """Gets the publicly available routes from AnyMile"""
+    """Gets the publicly available drone routes from AnyMile"""
 
     route_url = f"{ANYMILE_URL}/routes"
     route_data = await make_get_request(route_url)
@@ -60,7 +60,7 @@ async def get_routes() -> str:
 
 @mcp.tool()
 async def get_terminals_by_ids(terminal_ids: list[str]) -> str:
-    """Gets the publicly available terminals by their IDs
+    """Gets the publicly available drone terminals by their IDs
 
     Args:
         terminal_ids: A list of UUID corresponding to terminal IDs
@@ -78,7 +78,7 @@ async def get_terminals_by_ids(terminal_ids: list[str]) -> str:
 
 @mcp.tool()
 async def create_shipment_package_request(package_type: str, weight: float, height: float, width: float, length: float, description: str):
-    """Builds a shipment package request
+    """Builds a drone shipment package request
 
     Args:
         package_type: One of the available package types. This can be fetched from AnyMile
@@ -115,7 +115,7 @@ async def get_package_types():
 
 @mcp.tool()
 async def get_route_types():
-    """Retrieves the available route types from AnyMile"""
+    """Retrieves the available drone route types from AnyMile"""
 
     url = f"{ANYMILE_URL}/route-types"
     res = await make_get_request(url)
@@ -128,7 +128,7 @@ async def get_route_types():
 
 @mcp.tool()
 async def get_on_demand_types():
-    """Retrieves the available On Demand Types from AnyMile for a Shipment Request."""
+    """Retrieves the available On Demand Types from AnyMile for a Drone Shipment Request."""
 
     url = f"{ANYMILE_URL}/on-demand-types"
     res = await make_get_request(url)
@@ -178,7 +178,7 @@ async def request_shipment(
     recipient_id: str,
     shipment_package_request: Any,
 ):
-    """Requests a shipment for a package from AnyMile.
+    """Requests a drone shipment for a package from AnyMile.
 
     Args:
         on_demand_type: The On Demand type for the shipment request. On Demand Types can be fetched from AnyMile.
@@ -210,104 +210,6 @@ async def request_shipment(
     res = await make_post_request(url, req)
     return res
 
-
-
-
-
-# HTML for the homepage that displays "MCP Server"
-async def homepage(request: Request) -> HTMLResponse:
-    html_content = """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MCP Server</title>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            h1 {
-                margin-bottom: 10px;
-            }
-            button {
-                background-color: #f8f8f8;
-                border: 1px solid #ccc;
-                padding: 8px 16px;
-                margin: 10px 0;
-                cursor: pointer;
-                border-radius: 4px;
-            }
-            button:hover {
-                background-color: #e8e8e8;
-            }
-            .status {
-                border: 1px solid #ccc;
-                padding: 10px;
-                min-height: 20px;
-                margin-top: 10px;
-                border-radius: 4px;
-                color: #555;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>MCP Server</h1>
-        
-        <p>Server is running correctly!</p>
-        
-        <button id="connect-button">Connect to SSE</button>
-        
-        <div class="status" id="status">Connection status will appear here...</div>
-        
-        <script>
-            document.getElementById('connect-button').addEventListener('click', function() {
-                // Redirect to the SSE connection page or initiate the connection
-                const statusDiv = document.getElementById('status');
-                
-                try {
-                    const eventSource = new EventSource('/sse');
-                    
-                    statusDiv.textContent = 'Connecting...';
-                    
-                    eventSource.onopen = function() {
-                        statusDiv.textContent = 'Connected to SSE';
-                    };
-                    
-                    eventSource.onerror = function() {
-                        statusDiv.textContent = 'Error connecting to SSE';
-                        eventSource.close();
-                    };
-                    
-                    eventSource.onmessage = function(event) {
-                        statusDiv.textContent = 'Received: ' + event.data;
-                    };
-                    
-                    // Add a disconnect option
-                    const disconnectButton = document.createElement('button');
-                    disconnectButton.textContent = 'Disconnect';
-                    disconnectButton.addEventListener('click', function() {
-                        eventSource.close();
-                        statusDiv.textContent = 'Disconnected';
-                        this.remove();
-                    });
-                    
-                    document.body.appendChild(disconnectButton);
-                    
-                } catch (e) {
-                    statusDiv.textContent = 'Error: ' + e.message;
-                }
-            });
-        </script>
-    </body>
-    </html>
-    """
-    return HTMLResponse(html_content)
-
-
 def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlette:
     """Create a Starlette application that can serve the provided mcp server with SSE."""
     sse = SseServerTransport("/messages/")
@@ -327,15 +229,15 @@ def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlett
     return Starlette(
         debug=debug,
         routes=[
-            Route("/", endpoint=homepage),
             Route("/sse", endpoint=handle_sse),
             Mount("/messages/", app=sse.handle_post_message),
         ],
     )
 
 if __name__ == "__main__":
+#    mcp.run(transport='stdio')
     mcp_server = mcp._mcp_server
     
     # Create and run Starlette app
     starlette_app = create_starlette_app(mcp_server, debug=True)
-    uvicorn.run(starlette_app, host="0.0.0.0", port=8000, timeout_keep_alive=1200)
+    uvicorn.run(starlette_app, host="0.0.0.0", port=8080, timeout_keep_alive=1200)
