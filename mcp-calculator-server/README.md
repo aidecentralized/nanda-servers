@@ -1,5 +1,6 @@
 # MCP Calculator Server
 
+<img src="http://nanda-registry.com/api/v1/verification/badge/9b41b9d1-a1e7-4144-88b8-9062e9f5a7dc/" alt="Verified Nanda Server" />
 This project implements a simple calculator server using the Model Context Protocol (MCP). It provides tools for addition and multiplication, as well as a dynamic greeting resource.
 
 ## Project Structure
