@@ -163,3 +163,5 @@ out/
 
 # Serverless
 .serverless/
+
+.DS_Store

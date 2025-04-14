@@ -126,6 +126,11 @@ app.get("/api/test", (_: Request, res: Response) => {
   res.json({ status: "ok", message: "Server is working!" });
 });
 
+// MCP verification endpoint
+app.get("/mcp-verification.txt", (_: Request, res: Response) => {
+  res.type("text").send("9vwu1HgmCPv00oAe74qSF6AabELxSmzBRkwqza3myJg");
+});
+
 // SSE endpoint for MCP communication
 app.get("/sse", async (req: Request, res: Response) => {
   const transport = new SSEServerTransport("/messages", res);

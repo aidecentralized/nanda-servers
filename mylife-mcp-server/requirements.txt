@@ -1,0 +1,6 @@
+httpx
+starlette
+uvicorn
+fastmcp
+mcp.server
+gunicorn
