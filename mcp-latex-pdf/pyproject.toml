@@ -14,7 +14,7 @@ dependencies = [
  "fastapi>=0.115.12",
  "sse-starlette>=2.2.1",
  "uvicorn>=0.34.0",
- "tenacity>=9.1.2"
+ "tenacity>=9.1.2",
 ]
 [[project.authors]]
 name = "j16z"
