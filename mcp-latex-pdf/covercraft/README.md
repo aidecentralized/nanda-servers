@@ -8,6 +8,8 @@ This is a brief description of our submission to MIT's NANDA Hub hackathon.
 ![MIT Decentralized AI Hackathon](https://img.shields.io/badge/MIT-Decentralized_AI_Hackathon-blue)
 ![Status](https://img.shields.io/badge/status-winning-brightgreen)
 ![MCP](https://img.shields.io/badge/protocol-MCP-purple)
+![NANDA Verified]<img src="http://nanda-registry.com/api/v1/verification/badge/c4f8f27d-18d5-40e3-a2a7-86d7288ca34d/" alt="Verified MCP Server" />
+
 
 ## Overview 🔍
 
