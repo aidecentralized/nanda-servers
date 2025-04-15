@@ -1,0 +1,6 @@
+starlette==0.36.3
+uvicorn==0.29.0
+mcp  
+faiss-cpu
+sentence-transformers
+numpy==1.26.4
