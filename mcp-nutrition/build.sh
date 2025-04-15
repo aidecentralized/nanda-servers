@@ -19,4 +19,4 @@ pip install --upgrade pip
 echo "===== Installing dependencies from requirements.txt ====="
 pip install -r requirements.txt
 
-echo "===== Build process complete ======"
+echo "===== Build process complete ====="
