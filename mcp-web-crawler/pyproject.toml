@@ -1,0 +1,14 @@
+[project]
+name = "mcp-web-crawler"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "crawl4ai>=0.5.0.post8",
+    "fastapi>=0.115.12",
+    "mcp[cli]>=1.6.0",
+    "sse-starlette>=2.2.1",
+    "tenacity>=9.1.2",
+    "uvicorn>=0.34.0",
+]
