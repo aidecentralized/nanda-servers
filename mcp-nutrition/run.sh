@@ -2,5 +2,5 @@
 echo "===== Activating virtual environment ====="
 source venv/bin/activate
 
-echo "===== Starting the mcp Server Application ======"
-exec python3 news.py
+echo "===== Starting the mcp Server Application ====="
+exec python3 mcp_nutri.py
