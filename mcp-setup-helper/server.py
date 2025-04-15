@@ -176,14 +176,7 @@ The Memory Bank consists of core files and optional context files, all in Markdo
 4. 'systemPatterns.md' - System architecture, technical decisions, design patterns
 5. 'techContext.md' - Technologies used, development setup, constraints
 6. 'progress.md' - What works, what's left to build
-
-### Additional Context
-Create additional files/folders within memory-bank/ when they help organize:
-- Complex feature documentation
-- Integration specifications
-- API documentation
-- Testing strategies
-- Deployment procedures"""
+"""
 }
 
 # Define a tool to get Memory Bank structure
@@ -214,55 +207,57 @@ async def analyze_project_summary(project_summary: str) -> str:
     Args:
         project_summary: A summary of the project
     """
-    # In a real implementation, this would use more sophisticated analysis
-    # For now, we'll provide generic suggestions with some basic extraction
-    
     # Extract potential project name (first few words)
     words = project_summary.split()
     potential_name = " ".join(words[:3]) if len(words) >= 3 else project_summary
     
-    # Extract potential technologies (look for common tech terms)
-    tech_terms = ['React', 'Angular', 'Vue', 'Node', 'Python', 'Java', 'TypeScript', 
-                 'JavaScript', 'HTML', 'CSS', 'API', 'REST', 'GraphQL', 'MongoDB', 
-                 'SQL', 'PostgreSQL', 'MySQL', 'Docker', 'Kubernetes', 'AWS', 'Azure']
-    
-    found_tech = []
-    for term in tech_terms:
-        if term.lower() in project_summary.lower():
-            found_tech.append(term)
-    
-    tech_section = ""
-    if found_tech:
-        tech_section = f"""## Tech Context
-- Technologies identified: {', '.join(found_tech)}
-- Consider documenting your development setup
-- Note any technical constraints you're working with"""
-    
     return f"""Based on your project summary, here are suggestions for your Memory Bank:
 
-## Project Brief
-- Project Name: Consider "{potential_name}..." or something more descriptive
-- Include the core purpose from your summary
-- Define key requirements based on the functionality mentioned
-- Set clear goals derived from your project objectives
+## Core Memory Bank Files
 
-## Product Context
-- Address the problem your project aims to solve
-- Define user experience goals based on your target audience
-- Consider success metrics that align with your project goals
+1. **projectbrief.md** - The foundation document that shapes all other files
+   - Project Name: Consider "{potential_name}..." or something more descriptive
+   - Include the core purpose, requirements, goals, and scope of your project
+   - This file answers "What are we building?"
 
-{tech_section}
+2. **productContext.md** - Explains why the project exists and problems being solved
+   - Document the problem statement your project addresses
+   - Define user experience goals and success metrics
+   - This file answers "Why are we building this?"
 
-## System Patterns
-- Consider appropriate architectural patterns for your project type
-- Document key technical decisions as you make them
-- Map out component relationships early
+3. **activeContext.md** - Documents current work focus, recent changes, and next steps
+   - Track what you're currently working on and recent changes
+   - List upcoming tasks and priorities
+   - Document active decisions and emerging patterns
+   - This file answers "What are we working on now?"
 
-To get started:
-1. Create a 'memory-bank/' directory in your project
-2. Create the core files using our templates
-3. Fill in the details based on these suggestions
-4. Update regularly as your project evolves"""
+4. **systemPatterns.md** - Describes system architecture and technical decisions
+   - Document the overall architecture and component relationships
+   - List key technical decisions and design patterns in use
+   - Outline critical implementation paths
+   - This file answers "How is it built?"
+
+5. **techContext.md** - Lists technologies used, setup, and constraints
+   - Document technologies, development setup, and dependencies
+   - Note technical constraints and tool usage patterns
+   - This file answers "What technologies are we using?"
+
+6. **progress.md** - Tracks what works and what's left to build
+   - List completed features and functionality
+   - Document remaining work and known issues
+   - Track the evolution of project decisions
+   - This file answers "Where are we in the process?"
+
+## Files Location:
+1. If you are using Cursor IDE, create .md files in .cursor/rules directory
+2. If you are using another IDE, create .md files in directory for rules
+3. If you don't know where rules must be located, create a 'memory-bank/' directory in your project
+
+## Next Steps:
+1. Create the core files using our templates
+2. Fill in the details based on these suggestions
+3. Update regularly as your project evolves
+4. Ensure details accurately reflect your project context and current state"""
 
 # Add a resource for Memory Bank guide
 @mcp.resource("memory_bank_guide://{section}")
