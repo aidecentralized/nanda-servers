@@ -1,0 +1,27 @@
+# Documentation: https://www.thenewsapi.com/documentation
+# If no results are found, the data object will be empty.
+
+Tool Response:
+
+Meta:
+found 		# Number of articles found for the request.
+returned 	# Number of articles returned on current page. If less than the limit, there are no more results
+limit 		# Limit based on the limit parameter.
+page 		# Page number based on the page parameter.
+
+
+Data
+uuid 		# Unique identifier for an article in our system.
+title 		# Article title.
+description 	# The article meta description.
+keywords 	# The article meta keywords.
+snippet 	# The first 60 characters of the article body.
+url 		# The URL to the article.
+image_url 	# The URL to the article image.
+language 	# The language of the source.
+published_at 	# The datetime the article was published.
+source 		# The domain of the source.
+categories 	# Array of strings which the source is categorized as.
+relevance_score # Relevance score based on the search parameter. If the search parameter is not used, this is null.
+locale 		# Locale of the source.
+
