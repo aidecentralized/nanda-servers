@@ -148,10 +148,11 @@ Within this purview, you can edit the CSV file for your requirements, and the MC
 ## Usage in NANDA Host
 
 1. Visit [nanda.mit.edu](https://nanda.mit.edu)
-2. Add your Anthropic API key
-3. Find your MCP server in the registry
-4. Add it to your host
-5. Test by asking questions that use your server's functionality
+2. Go to the NANDA host
+3. Add your Anthropic API key
+4. Find your MCP server in the registry
+5. Add it to your host
+6. Test by asking questions that use your server's functionality
 
 ## Troubleshooting
 
