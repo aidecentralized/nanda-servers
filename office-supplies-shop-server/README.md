@@ -161,6 +161,11 @@ Within this purview, you can edit the CSV file for your requirements, and the MC
 - Verify your public endpoint works with MCP Inspector before registering
 - Check the logs on AWS if deployment fails
 
+## Additional Resources
+
+Check out this video tutorial for a walkthrough of setting up and using the MCP server:
+[![MCP Server Tutorial](https://img.youtube.com/vi/i7GPR8LnAWg/0.jpg)](https://www.youtube.com/watch?v=i7GPR8LnAWg)
+
 ## Acknowledgments
 
 Based on the [NANDA Servers](https://github.com/aidecentralized/nanda-servers) repository.
