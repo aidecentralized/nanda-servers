@@ -1,4 +1,4 @@
-# Office Supplies Inventory MCP Server
+# Office Supplies Inventory NANDA Service using MCP Server
 
 A Model Context Protocol (MCP) server that provides information about office supplies inventory. This server allows AI assistants to query and retrieve information about office supplies using the MCP standard.
 
