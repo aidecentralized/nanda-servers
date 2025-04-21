@@ -1,10 +1,12 @@
-# Office Supplies Inventory MCP Server
+# Office Supplies Inventory NANDA Service using MCP Server + NANDA Registry + NANDA host client
 
-A Model Context Protocol (MCP) server that provides information about office supplies inventory. This server allows AI assistants to query and retrieve information about office supplies using the MCP standard.
+Create a NANDA service using Model Context Protocol (MCP) server code that provides information about office supplies inventory. This service allows AI assistants to query and retrieve information about office supplies using the MCP standard. You will use cloud hosted server and a web based NANDA host client. No need to install a local server.
+
+You can deploy a consumer facing web-app for any standard inventory using the same framework.
 
 ## Overview
 
-This project implements an MCP server that serves office inventory data from a CSV file. It provides tools that allow AI assistants to:
+This project implements a NANDA service using MCP server code that serves office inventory data from a CSV file. It provides tools that allow AI assistants to:
 - Get a list of all available items in the inventory
 - Retrieve detailed information about specific items by name
 
@@ -72,7 +74,7 @@ This project implements an MCP server that serves office inventory data from a C
    pip install -r requirements.txt
    ```
 
-### Running the Server
+### Running the Server Locally to Test
 
 After setting up your environment using either option above:
 
@@ -145,7 +147,7 @@ Within this purview, you can edit the CSV file for your requirements, and the MC
    - Tags and categories
 5. Register your server
 
-## Usage in NANDA Host
+## Usage in NANDA Host, a Browser based Client
 
 1. Visit [nanda.mit.edu](https://nanda.mit.edu)
 2. Go to the NANDA host
@@ -169,3 +171,6 @@ Check out this video tutorial for a walkthrough of setting up and using the MCP 
 ## Acknowledgments
 
 Based on the [NANDA Servers](https://github.com/aidecentralized/nanda-servers) repository.
+Follow ProjectNanda at [https://nanda.mit.edu](https://nanda.mit.edu)
+
+
