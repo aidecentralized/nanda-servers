@@ -121,19 +121,29 @@ Within this purview, you can edit the CSV file for your requirements, and the MC
    ```bash
    chmod +x build.sh run.sh
    ```
+   For Windows, run
+   ```bash
+   wsl chmod +x build.sh run.sh
+   ```
+### Create AWS account
+1. 
 
 ### Deploying to AWS AppRunner
 
-1. Go to AWS AppRunner
-2. Create a new service from your source code repository
-3. Configure the service:
+1. Create AWS account
+2. Add your credit card for billing
+3. Go to AWS AppRunner (https://console.aws.amazon.com/apprunner)
+4. Log in (if you’re not already)
+5. Once you're in the App Runner dashboard, you’ll see a blue “Create service” button near the top right of the page. Click that.
+6. Create a new service from your source code repository
+7. Configure the service:
    - Python 3.11 runtime
    - Build command: `./build.sh`
    - Run command: `./run.sh`
    - Port: 8080
 
-4. Deploy and wait for completion
-5. Test the public endpoint with MCP Inspector
+8. Deploy and wait for completion
+9. Test the public endpoint with MCP Inspector
 
 ### Registering on NANDA Registry
 
