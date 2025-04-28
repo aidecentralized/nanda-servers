@@ -68,6 +68,14 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install mcp httpx uvicorn starlette
 ```
+ALTERNATIVE to the above: you can INSTEAD use an Anaconda environment.
+```bash
+mkdir my-mcp-server
+cd my-mcp-server
+conda create -n venv python=3.11
+conda activate venv
+pip install mcp httpx uvicorn starlette
+```
 
 ### 2. Set up the basic server structure
 
