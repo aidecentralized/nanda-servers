@@ -1,0 +1,40 @@
+{
+  "name": "ufm",
+  "description": "Federated medical diagnosis using image + text + vitals",
+  "version": "0.1.0",
+  "functions": [
+    {
+      "name": "diagnose",
+      "description": "Diagnose X-ray + report using federated agents",
+      "method": "POST",
+      "path": "/functions/diagnose",
+      "contentType": "multipart/form-data",
+      "parameters": [
+        {
+          "name": "patient_id",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "integer"
+        },
+        {
+          "name": "bp",
+          "type": "integer"
+        },
+        {
+          "name": "hr",
+          "type": "integer"
+        },
+        {
+          "name": "report",
+          "type": "string"
+        },
+        {
+          "name": "xray_image",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
